@@ -1,0 +1,66 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Administrar usuarios";
+}
+
+<h2 class="text-primary fw-bold mb-4">Panel de Administración de Usuarios</h2>
+
+<!-- Botón de agregar usuario -->
+<div class="d-flex justify-content-between mb-4">
+    <div></div>
+    <a asp-controller="User" asp-action="CreateUser" class="btn btn-success shadow-sm">
+        <i class="bi bi-plus-circle me-2"></i> Agregar Usuario
+    </a>
+</div>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">No hay usuarios registrados.</p>
+}
+else
+{
+    <div class="table-responsive shadow-sm">
+        <table class="table table-hover table-bordered align-middle">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Nombre de usuario</th>
+                    <th>Usuario de Prosody</th>
+                    <th>Email</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Género</th>
+                    <th>Estado</th>
+                    <th>Creado</th>
+                    <th>Último Acceso</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.FullName</td>
+                        <td>@user.Username</td>
+                        <td>@user.UsernameProsody</td>
+                        <td>@user.Email</td>
+                        <td>@user.Birthdate.ToString("yyyy-MM-dd")</td>
+                        <td>@user.Gender_Id</td>
+                        <td>
+                            <span class="badge rounded-pill @(user.IsActive ? "bg-success" : "bg-danger")">
+                                @(user.IsActive ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                        <td>@user.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        <td>@(user.LastLogin?.ToString("yyyy-MM-dd HH:mm") ?? "-")</td>
+                        <td>
+                            <a asp-controller="User" asp-action="UpdateUser" asp-route-Id="@user.Id" class="btn btn-warning btn-sm me-2">
+                                <i class="bi bi-pencil-square me-1"></i> Editar
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

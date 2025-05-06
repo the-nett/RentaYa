@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "RentaloYa.Application/1.0.0": {
+        "dependencies": {
+          "RentaloYa.Domain": "1.0.0"
+        },
+        "runtime": {
+          "RentaloYa.Application.dll": {}
+        }
+      },
+      "RentaloYa.Domain/1.0.0": {
+        "runtime": {
+          "RentaloYa.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RentaloYa.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RentaloYa.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

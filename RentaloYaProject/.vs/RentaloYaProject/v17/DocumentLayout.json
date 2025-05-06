@@ -1,0 +1,236 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloyaproject\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|solutionrelative:rentaloyaproject\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloyaproject\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|solutionrelative:rentaloyaproject\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloyaproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|solutionrelative:rentaloyaproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.infrastructure\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.application\\common\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloyaproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|solutionrelative:rentaloyaproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FA4CC3C-CE19-4EB5-98E7-2FCA4FC7DCED}|RentaloYa.Domain\\RentaloYa.Domain.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FA4CC3C-CE19-4EB5-98E7-2FCA4FC7DCED}|RentaloYa.Domain\\RentaloYa.Domain.csproj|solutionrelative:rentaloya.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.application\\common\\interfaces\\igenderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\interfaces\\igenderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloyaproject\\views\\user\\adminuserspanel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentaloYa.Web.csproj|solutionrelative:rentaloyaproject\\views\\user\\adminuserspanel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\campusclickwebapi\\rentaloyaproject\\rentaloya.infrastructure\\repository\\genderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\genderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Views\\Login\\Login.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\Login\\Login.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Views\\Login\\Login.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\Login\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-06T16:50:22.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "RentaloYaProject\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T16:50:01.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwCEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T03:54:35.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T03:07:55.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "RentaloYa.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAYwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T02:26:27.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminUsersPanel.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Views\\User\\AdminUsersPanel.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\User\\AdminUsersPanel.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Views\\User\\AdminUsersPanel.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\User\\AdminUsersPanel.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-06T00:42:49.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Program.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Program.cs",
+              "RelativeToolTip": "RentaloYaProject\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:38:31.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GenderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\GenderRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\GenderRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\GenderRepository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\GenderRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:34:20.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IGenderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\Common\\Interfaces\\IGenderRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\Interfaces\\IGenderRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\Common\\Interfaces\\IGenderRepository.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\Interfaces\\IGenderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:33:22.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\Common\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\Common\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:58:15.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYaProject\\Controllers\\UserController.cs",
+              "RelativeToolTip": "RentaloYaProject\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:43:21.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowCUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:36:23.768Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

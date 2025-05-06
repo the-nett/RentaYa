@@ -1,0 +1,280 @@
+﻿@model ProfileSettingsVM
+
+@{
+    ViewData["Title"] = "Configuración de Perfil";
+    var gendersList = ViewData["GendersList"] as IEnumerable<SelectListItem>;
+}
+
+<div class="min-vh-100 bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <a href="@Url.Action("Profile", "User")" class="btn btn-sm btn-outline-secondary me-3">
+                        <i class="bi bi-arrow-left"></i> Volver al Perfil
+                    </a>
+                    <h1 class="mb-0">Mi Perfil</h1>
+                </div>
+
+                <ul class="nav nav-tabs mb-4" id="profileTabs" role="tablist">
+                    <li class="nav-item flex-fill text-center" role="presentation">
+                        <button class="nav-link active w-100" id="personal-info-tab" data-bs-toggle="tab"
+                                data-bs-target="#personal-info" type="button" role="tab"
+                                aria-controls="personal-info" aria-selected="true">
+                            Información Personal
+                        </button>
+                    </li>
+                    <li class="nav-item flex-fill text-center" role="presentation">
+                        <button class="nav-link w-100" id="security-tab" data-bs-toggle="tab"
+                                data-bs-target="#security" type="button" role="tab"
+                                aria-controls="security" aria-selected="false">
+                            Seguridad
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="profileTabsContent">
+                    <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Información Personal</h5>
+                                <p class="card-text text-muted small">
+                                    Actualiza tu información personal y cómo te ven otros usuarios en la plataforma
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                @using (Html.BeginForm("UpdateProfile", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="d-flex flex-column flex-sm-row gap-4 align-items-center align-items-sm-start mb-5">
+                                        <div class="position-relative">
+                                            <div class="rounded-circle overflow-hidden" style="width: 100px; height: 100px;">
+                                                <img src="@Url.Content("~/images/placeholder-avatar.jpg")" class="img-fluid" alt="Profile Picture" />
+                                            </div>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary rounded-circle position-absolute bottom-0 end-0"
+                                                    style="width: 32px; height: 32px; padding: 0; display: flex; align-items: center; justify-content: center;">
+                                                <i class="bi bi-camera"></i>
+                                            </button>
+                                        </div>
+                                        <div class="text-center text-sm-start">
+                                            <h5 class="fw-medium">Foto de Perfil</h5>
+                                            <p class="text-muted small">
+                                                Esta foto será visible para todos los usuarios de la plataforma.
+                                            </p>
+                                            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-sm-start">
+                                                <label class="btn btn-sm btn-outline-secondary" for="profile-photo-input">
+                                                    Cambiar Foto
+                                                </label>
+                                                <input type="file" id="profile-photo-input" name="ProfilePhoto" class="d-none" accept="image/*" />
+                                                <button type="button" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="my-4" />
+
+                                    <div class="mb-4">
+                                        <div class="row mb-3">
+                                            <div class="col-md-12 mb-3">
+                                                <label for="FullName" class="form-label">
+                                                    <i class="bi bi-person me-1 text-muted"></i>
+                                                    Nombre Completo
+                                                </label>
+                                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Nombre Completo" })
+                                                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-md-12 mb-3">
+                                                <label for="Username" class="form-label">
+                                                    <i class="bi bi-person-badge me-1 text-muted"></i>
+                                                    Nombre de Usuario
+                                                </label>
+                                                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Nombre de Usuario" })
+                                                @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-md-12 mb-3">
+                                                <label for="Email" class="form-label">
+                                                    <i class="bi bi-envelope me-1 text-muted"></i>
+                                                    Correo Electrónico
+                                                </label>
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control-plaintext", type = "email", @readonly = "readonly" })
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label for="Birthdate" class="form-label">
+                                                    <i class="bi bi-calendar me-1 text-muted"></i>
+                                                    Fecha de Nacimiento
+                                                </label>
+                                                @Html.TextBoxFor(m => m.Birthdate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                                                @Html.ValidationMessageFor(m => m.Birthdate, "", new { @class = "text-danger" })
+                                            </div>
+
+                                            <div class="col-md-6 mb-3">
+                                                <label for="Gender" class="form-label">
+                                                    <i class="bi bi-people me-1 text-muted"></i>
+                                                    Género
+                                                </label>
+                                                @Html.DropDownListFor(m => m.Gender, gendersList, new { @class = "form-select" })
+                                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer bg-transparent text-end">
+                                        <button type="button" class="btn btn-outline-secondary me-2">Cancelar</button>
+                                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Seguridad</h5>
+                                <p class="card-text text-muted small">Administra tu correo electrónico y contraseña</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <p>¿Deseas cambiar tu correo electrónico o contraseña?</p>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeCredentialsModal">
+                                        Cambiar Correo y Contraseña
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="card border-danger">
+                            <div class="card-header bg-danger bg-opacity-10 text-danger">
+                                <h5 class="card-title mb-0">Eliminar Cuenta</h5>
+                                <p class="card-text text-muted small">Una vez que elimines tu cuenta, todos tus datos serán eliminados permanentemente</p>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+                                    Eliminar mi Cuenta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="changeCredentialsModal" tabindex="-1" aria-labelledby="changeCredentialsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changeCredentialsModalLabel">Cambiar Correo y Contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("UpdateEmailPassword", "User", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label for="NewEmail" class="form-label">Nuevo Correo Electrónico</label>
+                        <input type="email" class="form-control" id="NewEmail" name="NewEmail" placeholder="Nuevo Correo Electrónico" required />
+                        @Html.ValidationMessage("NewEmail", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        <label for="NewPassword" class="form-label">Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="NewPassword" name="NewPassword" placeholder="Nueva Contraseña" required />
+                        @Html.ValidationMessage("NewPassword", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        <label for="ConfirmNewPassword" class="form-label">Confirmar Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="ConfirmNewPassword" name="ConfirmNewPassword" placeholder="Confirmar Nueva Contraseña" required />
+                        @Html.ValidationMessage("ConfirmNewPassword", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteAccountModalLabel">Confirmar Eliminación de Cuenta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer y toda tu información será eliminada permanentemente.</p>
+                <div class="alert alert-danger">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    Esta acción es irreversible.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form action="@Url.Action("DeleteAccount", "User")" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger">Sí, Eliminar mi Cuenta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Enable Bootstrap tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // Handle tab persistence with url hash
+            var hash = window.location.hash;
+            if (hash) {
+                $('#profileTabs a[href="' + hash + '"]').tab('show');
+            }
+
+            // Change hash for page-reload
+            $('#profileTabs a').on('shown.bs.tab', function (e) {
+                window.location.hash = e.target.getAttribute('data-bs-target');
+            });
+
+            // Client-side validation for Birthdate
+            $('#Birthdate').on('change', function() {
+                var selectedDate = new Date($(this).val());
+                var today = new Date();
+                today.setHours(0, 0, 0, 0); // Compare only the date part
+
+                if (selectedDate > today) {
+                    $(this).addClass('is-invalid');
+                    if ($(this).next('.invalid-feedback').length === 0) {
+                        $(this).after('<div class="invalid-feedback">La fecha de nacimiento no puede ser posterior a hoy.</div>');
+                    }
+                } else {
+                    $(this).removeClass('is-invalid');
+                    $(this).next('.invalid-feedback').remove();
+                }
+            });
+
+            // Re-validate on form submit to catch cases where the date might have been entered without triggering 'change'
+            $('form').on('submit', function() {
+                $('#Birthdate').trigger('change');
+                if ($('.is-invalid').length > 0) {
+                    return false; // Prevent form submission if there are invalid fields
+                }
+                return true; // Allow form submission if all fields are valid
+            });
+        });
+    </script>
+}

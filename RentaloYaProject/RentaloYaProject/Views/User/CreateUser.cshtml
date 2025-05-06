@@ -1,0 +1,78 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<h2 class="text-primary fw-bold mb-4">Crear Nuevo Usuario</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="CreateUser" method="post" class="shadow p-4 rounded bg-light">
+            <div class="mb-3">
+                <label asp-for="IdSupa" class="form-label"></label>
+                <input asp-for="IdSupa" class="form-control" />
+                <span asp-validation-for="IdSupa" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="UsernameProsody" class="form-label"></label>
+                <input asp-for="UsernameProsody" class="form-control" />
+                <span asp-validation-for="UsernameProsody" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" type="email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Birthdate" class="form-label"></label>
+                <input asp-for="Birthdate" type="date" class="form-control" />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                @* <label asp-for="Gender_Id" class="form-label">Género</label>
+                <select asp-for="Gender_Id" asp-items="ViewBag.Genders" class="form-select">
+                    <option value="">Seleccione...</option>
+                </select>
+                <span asp-validation-for="Gender_Id" class="text-danger"></span> *@
+                <label asp-for="Gender" class="form-label"></label>
+                <Select asp-for="@Model.Gender_Id" asp-items="@ViewData["GendersList"] as IEnumerable<SelectListItem>" class="form-select border shadow">
+                    <option disabled selected>--Selecciona Género</option>
+                </Select>
+                <span asp-validation-for="Gender_Id" class="text-danger"></span>
+            </div>
+
+            @* <div class="mb-3 form-check">
+                <input asp-for="IsActive" class="form-check-input" />
+                <label asp-for="IsActive" class="form-check-label">Activo</label>
+            </div> *@
+
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-circle me-1"></i> Guardar Usuario
+            </button>
+            <a asp-action="AdminUsersPanel" class="btn btn-secondary ms-2">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

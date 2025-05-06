@@ -1,0 +1,16 @@
+﻿@{
+    var message = TempData["Message"] as string;
+    var isSuccess = TempData["IsSuccess"] as bool?;
+}
+
+@if (!string.IsNullOrEmpty(message) && isSuccess.HasValue)
+{
+    <script>
+        Swal.fire({
+            icon: '@(isSuccess.Value ? "success" : "error")',
+            title: '@(isSuccess.Value ? "Éxito" : "Error")',
+            text: '@message',
+            confirmButtonColor: "#3085d6"
+        });
+    </script>
+}
