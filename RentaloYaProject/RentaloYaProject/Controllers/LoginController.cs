@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RentalWeb.Web.ViewModels.Profile;
 
 namespace RentaloYa.Web.Controllers
 {
@@ -6,7 +7,12 @@ namespace RentaloYa.Web.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var model = new LoginModuleVM
+            {
+                LoginViewModel = new LoginViewModel(),
+                RegisterViewModel = new RegisterModelVM()
+            };
+            return View(model);
         }
     }
 }

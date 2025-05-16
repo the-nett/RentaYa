@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RentaloYa.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58c2e13d149ce14b70f3791d12a7175384814410")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b4588c5352395ba98df2b9bf6677b65f9634a31")]
 [assembly: System.Reflection.AssemblyProductAttribute("RentaloYa.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RentaloYa.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

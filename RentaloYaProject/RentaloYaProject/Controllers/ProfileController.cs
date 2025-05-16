@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RentaloYa.Domain.Entities;
 using RentaloYa.Infrastructure.Data;
+using RentaloYa.Infrastructure.Repository;
 using RentaloYa.Web.ViewModels.Profile;
 
 namespace RentaloYa.Web.Controllers
@@ -10,15 +11,17 @@ namespace RentaloYa.Web.Controllers
     public class ProfileController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public ProfileController(ApplicationDbContext context)
+        private readonly IRepository<Gender> _genderRepo;
+        public ProfileController(ApplicationDbContext context, IRepository<Gender> genderRepo)
         {
             _context = context;
+            _genderRepo = genderRepo;
         }
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult ProfileSettings(int id)
+        public async Task<IActionResult> ProfileSettings(int id)
         {
             User? user = _context.Users.FirstOrDefault(x => x.Id == id);
             //if (user == null)
@@ -33,10 +36,11 @@ namespace RentaloYa.Web.Controllers
                 Birthdate = user.Birthdate,
                 Gender = user.Gender_Id
             };
-            IEnumerable<SelectListItem> list = _context.Genders.ToList().Select(u => new SelectListItem
+            var genders = await _genderRepo.GetAllAsync();
+            IEnumerable<SelectListItem> list = genders.Select(g => new SelectListItem
             {
-                Text = u.GenderName,
-                Value = u.IdGender.ToString()
+                Text = g.GenderName,
+                Value = g.IdGender.ToString()
             });
             ViewData["GendersList"] = list;
 

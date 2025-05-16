@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RentaloYa.Application.Common.Interfaces;
+using RentaloYa.Infrastructure.Configuration;
 using RentaloYa.Infrastructure.Data;
 using RentaloYa.Infrastructure.Repository;
 
@@ -14,6 +15,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServe
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IGenderRepository, GenderRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+//Supabase
+builder.Services.Configure<SupabaseSettings>(builder.Configuration.GetSection("Supabase"));
+
+
 
 
 var app = builder.Build();

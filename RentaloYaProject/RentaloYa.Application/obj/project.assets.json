@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
       "projectName": "RentaloYa.Application",
-      "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,8 +59,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj": {
-              "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj"
+            "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj"
             }
           }
         }

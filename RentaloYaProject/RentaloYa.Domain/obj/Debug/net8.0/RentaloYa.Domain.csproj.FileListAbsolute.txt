@@ -10,3 +10,15 @@ C:\Users\User\source\repos\CampusClickWebApi\RentaloYaProject\RentaloYa.Domain\o
 C:\Users\User\source\repos\CampusClickWebApi\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\refint\RentaloYa.Domain.dll
 C:\Users\User\source\repos\CampusClickWebApi\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.pdb
 C:\Users\User\source\repos\CampusClickWebApi\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\ref\RentaloYa.Domain.dll
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\bin\Debug\net8.0\RentaloYa.Domain.deps.json
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\bin\Debug\net8.0\RentaloYa.Domain.dll
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\bin\Debug\net8.0\RentaloYa.Domain.pdb
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.AssemblyInfo.cs
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.sourcelink.json
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.dll
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\refint\RentaloYa.Domain.dll
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\RentaloYa.Domain.pdb
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYa.Domain\obj\Debug\net8.0\ref\RentaloYa.Domain.dll

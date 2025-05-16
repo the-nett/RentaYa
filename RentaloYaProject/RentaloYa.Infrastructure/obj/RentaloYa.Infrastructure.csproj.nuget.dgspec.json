@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj": {}
+    "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj": {
+    "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
         "projectName": "RentaloYa.Application",
-        "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj"
+              "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj": {
+    "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj",
         "projectName": "RentaloYa.Domain",
-        "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\RentaloYa.Domain.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Domain\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -140,14 +140,14 @@
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj": {
+    "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj",
         "projectName": "RentaloYa.Infrastructure",
-        "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -169,8 +169,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\CampusClickWebApi\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj"
+              "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\RentaloYa.Application.csproj"
               }
             }
           }
@@ -206,6 +206,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Supabase": {
+              "target": "Package",
+              "version": "[1.1.1, )"
             }
           },
           "imports": [
