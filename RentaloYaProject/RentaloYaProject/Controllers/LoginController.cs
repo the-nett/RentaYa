@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RentalWeb.Web.ViewModels.Profile;
+using Supabase.Interfaces;
 
 namespace RentaloYa.Web.Controllers
 {
@@ -13,6 +14,7 @@ namespace RentaloYa.Web.Controllers
                 RegisterViewModel = new RegisterModelVM()
             };
             return View(model);
+            //await _supabaseClient.Auth.SignOut();
         }
     }
 }

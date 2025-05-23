@@ -1,5 +1,11 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Images\categories\appliances.jpg
+wwwroot\Images\categories\events.jpg
+wwwroot\Images\categories\garden.jpg
+wwwroot\Images\categories\home.jpg
+wwwroot\Images\categories\sports.jpg
+wwwroot\Images\categories\Tools.jpg
 wwwroot\js\CheckValidation.js
 wwwroot\js\passwordToggle.js
 wwwroot\js\site.js
@@ -60,3 +66,4 @@ wwwroot\lib\jquery-validation\LICENSE.md
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\taladroRenta.jpg

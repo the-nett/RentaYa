@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Procesando...</title>
+    @Html.AntiForgeryToken()
+</head>
+<body>
+    <p>Procesando la autenticación...</p>
+</body>
+</html>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            const fragment = window.location.hash.substring(1); // Quita el "#"
+            const params = new URLSearchParams(fragment);
+            const accessToken = params.get("access_token");
+            const refreshToken = params.get("refresh_token");
+
+            if (!accessToken) {
+                console.error("No se encontró access_token en la URL.");
+                return;
+            }
+
+            // Enviar al backend
+            $.ajax({
+                url: '@Url.Action("TokenValidation", "Auth")',
+                method: 'POST',
+                data: {
+                    accessToken: accessToken,
+                    refreshToken: refreshToken
+                },
+                success: function (response) {
+                    if (response.success && response.redirectUrl) {
+                        // Limpia la URL antes de redirigir
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                        window.location.href = response.redirectUrl;
+                    } else if (response.message) {
+                        console.error("Error de autenticación:", response.message);
+                    } else {
+                        console.error("Respuesta inesperada del servidor:", response);
+                    }
+                },
+                error: function (error) {
+                    console.error("Error al enviar los tokens:", error);
+                }
+            });
+        });
+    </script>
+}

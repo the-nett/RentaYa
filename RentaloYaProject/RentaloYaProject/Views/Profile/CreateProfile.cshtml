@@ -1,0 +1,89 @@
+﻿@model RentaloYa.Web.ViewModels.Profile.ProfileSettingsVM
+
+@{
+    ViewData["Title"] = "Crear Perfil";
+    var gendersList = ViewData["GendersList"] as IEnumerable<SelectListItem>;
+    var supabaseId = ViewData["SupabaseId"] as string;
+}
+
+<div class="min-vh-100 bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <h1 class="mb-0">Crear Perfil</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Información de Perfil</h5>
+                        <p class="card-text text-muted small">
+                            Por favor, completa la siguiente información para crear tu perfil.
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("CreateProfile", "Profile", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("supabaseId", supabaseId)
+                            // Campo oculto para SupabaseId
+
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label">
+                                    <i class="bi bi-envelope me-1 text-muted"></i>
+                                    Correo Electrónico
+                                </label>
+                                <input asp-for="Email" class="form-control-plaintext" type="email" readonly />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Username" class="form-label">
+                                    <i class="bi bi-person-badge me-1 text-muted"></i>
+                                    Nombre de Usuario
+                                </label>
+                                <input asp-for="Username" class="form-control" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="FullName" class="form-label">
+                                    <i class="bi bi-person me-1 text-muted"></i>
+                                    Nombre Completo
+                                </label>
+                                <input asp-for="FullName" class="form-control" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Birthdate" class="form-label">
+                                    <i class="bi bi-calendar me-1 text-muted"></i>
+                                    Fecha de Nacimiento
+                                </label>
+                                <input asp-for="Birthdate" type="date" class="form-control" />
+                                <span asp-validation-for="Birthdate" class="text-danger"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Gender" class="form-label">
+                                    <i class="bi bi-people me-1 text-muted"></i>
+                                    Género
+                                </label>
+                                @Html.DropDownListFor(m => m.Gender, gendersList, "Seleccionar Género", new { @class = "form-select" })
+                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="card-footer bg-transparent text-end">
+                                <button type="submit" class="btn btn-primary">Crear Perfil</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

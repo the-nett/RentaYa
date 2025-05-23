@@ -8,7 +8,7 @@ namespace RentaloYa.Domain.Entities
         [Key]
         public int Id { get; set; } // Primary Key
 
-        public required Guid IdSupa { get; set; } // UUID for Supabase
+        public Guid? IdSupa { get; set; } // UUID for Supabase
 
         public string? UsernameProsody { get; set; }
         public required string Username { get; set; } // Unique username    
@@ -31,5 +31,7 @@ namespace RentaloYa.Domain.Entities
         // Navigation property to the Gender entity
         public virtual Gender Gender { get; set; } = null!; // Initialize to null to avoid null reference issues
         public ICollection<UserRol> UserRoles { get; set; } = null!;
+
+        public ICollection<Item> Items { get; set; } = new List<Item>();
     }
 }

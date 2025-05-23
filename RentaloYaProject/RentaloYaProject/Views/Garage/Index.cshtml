@@ -1,0 +1,22 @@
+﻿@model List<GarageItemViewModel>
+
+<h2>Mis Artículos en el Garaje</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                   
+                    <h5 class="card-title">@item.Nombre</h5>
+                    <p class="card-text">Cantidad: @item.Cantidad</p>
+                    <p class="card-text">Tipo de Renta: @item.TipoRenta</p>
+                    <p class="card-text">Disponible: @(item.Disponible ? "Sí" : "No")</p>
+                    <a asp-action="EditItem" asp-controller="Garage" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
+                    <a href="#" class="btn btn-danger">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

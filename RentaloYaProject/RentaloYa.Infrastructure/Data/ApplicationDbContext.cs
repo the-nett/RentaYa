@@ -20,7 +20,10 @@ namespace RentaloYa.Infrastructure.Data
         public DbSet<UserRol> UsersRoles { get; set; }
         public DbSet<RolePermission> RolesPermissions { get; set; }
         public DbSet<Permission> Permissions { get; set; }
-
+        public DbSet<Item> Items { get; set; }
+        public DbSet<ItemStatus> ItemStatuses { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<RentalType> RentalTypes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Tabla intermedia UserRoles
@@ -61,6 +64,24 @@ namespace RentaloYa.Infrastructure.Data
                 .Property(p => p.Permissionn)
                 .IsRequired();
 
+            //Status for items
+            modelBuilder.Entity<Item>()
+                .HasOne(i => i.ItemStatus)
+                .WithMany(s => s.Items)
+                .HasForeignKey(i => i.ItemStatusId);
+
+            //category for items
+            modelBuilder.Entity<Item>()
+                .HasOne(i => i.Category)
+                .WithMany(c => c.Items)
+                .HasForeignKey(i => i.CategoryId);
+
+            // RentalType for items
+            modelBuilder.Entity<Item>()
+                .HasOne(i => i.RentalType)
+                .WithMany(rt => rt.Items)
+                .HasForeignKey(i => i.RentalTypeId);
+
 
             // ---------- Seed Data ----------
             modelBuilder.Entity<Gender>().HasData(
@@ -92,6 +113,31 @@ namespace RentaloYa.Infrastructure.Data
                 new RolePermission { RoleId = 2, PermissionId = 3 }  // Invitado - Ver Reportes
             );
 
+            // ---------- Seed Categories ----------
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Herramientas" },
+                new Category { Id = 2, Name = "Electrónicos" },
+                new Category { Id = 3, Name = "Deportes" },
+                new Category { Id = 4, Name = "Hogar" },
+                new Category { Id = 5, Name = "Jardín" },
+                new Category { Id = 6, Name = "Eventos" }
+            );
+
+            // ---------- Seed RentalTypes ----------
+            modelBuilder.Entity<RentalType>().HasData(
+                new RentalType { Id = 1, TypeName = "Por hora" },
+                new RentalType { Id = 2, TypeName = "Por día" },
+                new RentalType { Id = 3, TypeName = "Por semana" },
+                new RentalType { Id = 4, TypeName = "Por mes" }
+            );
+
+            // ---------- Seed ItemStatuses ----------
+            modelBuilder.Entity<ItemStatus>().HasData(
+                new ItemStatus { Id = 1, StatusName = "Disponible", Description = "El artículo está visible y se puede alquilar" },
+                new ItemStatus { Id = 2, StatusName = "Rentado", Description = "Todos los ejemplares están ocupados en este momento" },
+                new ItemStatus { Id = 3, StatusName = "Pausado", Description = "El dueño pausó la publicación (invisible)" },
+                new ItemStatus { Id = 4, StatusName = "Eliminado", Description = "Eliminado lógicamente del sistema" }
+            );
             modelBuilder.Entity<User>().HasData(
               new User
               {
@@ -111,6 +157,10 @@ namespace RentaloYa.Infrastructure.Data
 
             modelBuilder.Entity<User>()
                 .Property(u => u.CreatedAt)
+                .HasDefaultValueSql("GETDATE()");
+            
+            modelBuilder.Entity<Item>()
+                .Property(i => i.CreatedAt)
                 .HasDefaultValueSql("GETDATE()");
         }
     }

@@ -34,5 +34,13 @@ namespace RentaloYa.Infrastructure.Repository
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
          }
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+        }
+        public async Task<bool> GetUserByUserNameAsync(string userName)
+        {
+            return await _context.Users.AnyAsync(x => x.Username == userName);
+        }
     }
 }

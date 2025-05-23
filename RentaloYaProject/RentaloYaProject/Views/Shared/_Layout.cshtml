@@ -11,24 +11,27 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RentaloYaProject</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <header class="bg-white border-bottom shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <a class="navbar-brand fs-4 fw-bold text-dark" href="/">RentalWeb</a>
+            <div class="ms-auto">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="d-flex align-items-center">
+                        @* Contenedor Flexbox *@
+                        <span class="navbar-text me-3">
+                            Hola, <span class="fw-semibold">@User.Identity.Name</span>!
+                        </span>
+                        <a class="nav-link text-secondary" href="/Auth/Logout" title="Cerrar Sesión">
+                            <i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <a class="btn btn-link text-secondary text-decoration-none me-2" asp-controller="Login" asp-action="Index">Iniciar Sesión</a>
+                    <a class="btn btn-primary" asp-controller="Login" asp-action="Index">Registrarse</a>
+                }
             </div>
         </nav>
     </header>
@@ -39,9 +42,39 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="bg-dark text-light py-5">
         <div class="container">
-            &copy; 2025 - RentaloYaProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h3 class="text-white fw-bold mb-3">RentalWeb</h3>
+                    <p class="text-muted small">La plataforma líder para rentar artículos de todo tipo</p>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-white fw-medium mb-3">Enlaces</h4>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-muted text-decoration-none hover-white">Inicio</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none hover-white">Categorías</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none hover-white">Cómo Funciona</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-white fw-medium mb-3">Legal</h4>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-muted text-decoration-none hover-white">Términos de Servicio</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none hover-white">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="text-white fw-medium mb-3">Contacto</h4>
+                    <ul class="list-unstyled small">
+                        <li class="text-muted">soporte@RentalWeb.com</li>
+                        <li class="text-muted">+52 55 1234 5678</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-5 pt-4 text-center small text-muted">
+                &copy; @DateTime.Now.Year RentalWeb. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

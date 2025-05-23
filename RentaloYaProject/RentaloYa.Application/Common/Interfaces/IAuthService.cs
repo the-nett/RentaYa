@@ -1,9 +1,9 @@
-﻿using RentaloYa.Domain.Entities;
+﻿using RentaloYa.Application.Common.DTOs;
 
 namespace RentaloYa.Application.Common.Interfaces
 {
     public interface IAuthService
     {
-        Task<User?> ValidateSessionAsync(string accessToken);
+       Task<SupabaseAuthResultDto> VerifyTokenAndGetUserInfoAsync(string accessToken);
     }
 }

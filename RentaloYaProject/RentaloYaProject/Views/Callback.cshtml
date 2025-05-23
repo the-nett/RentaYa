@@ -1,0 +1,28 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Procesando login...</title>
+</head>
+<body>
+    <p>Iniciando sesión, por favor espera...</p>
+
+    <script>
+        (function () {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+
+            const accessToken = params.get("access_token");
+            const refreshToken = params.get("refresh_token");
+            const expiresIn = params.get("expires_in");
+
+            // Redirigir al backend con los tokens en query string
+            const redirectUrl = `/Auth/HandleSupabaseCallback?access_token=${encodeURIComponent(accessToken)}&refresh_token=${encodeURIComponent(refreshToken)}&expires_in=${encodeURIComponent(expiresIn)}`;
+            window.location.href = redirectUrl;
+        })();
+    </script>
+</body>
+</html>

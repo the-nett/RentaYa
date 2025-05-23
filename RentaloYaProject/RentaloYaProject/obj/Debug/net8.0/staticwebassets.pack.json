@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\RentalWeb.Web.gyfloh7prs.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\Images\\categories\\Tools.jpg",
+      "PackagePath": "staticwebassets\\Images\\categories\\Tools.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\Images\\categories\\appliances.jpg",
+      "PackagePath": "staticwebassets\\Images\\categories\\appliances.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\Images\\categories\\events.jpg",
+      "PackagePath": "staticwebassets\\Images\\categories\\events.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\Images\\categories\\garden.jpg",
+      "PackagePath": "staticwebassets\\Images\\categories\\garden.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\Images\\categories\\home.jpg",
+      "PackagePath": "staticwebassets\\Images\\categories\\home.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\Images\\categories\\sports.jpg",
+      "PackagePath": "staticwebassets\\Images\\categories\\sports.jpg"
+    },
+    {
       "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -251,6 +275,10 @@
     {
       "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\wwwroot\\taladroRenta.jpg",
+      "PackagePath": "staticwebassets\\taladroRenta.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RentalWeb.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

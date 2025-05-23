@@ -22,6 +22,102 @@ namespace RentaloYa.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ItemStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StatusName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemStatuses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "El artículo está visible y se puede alquilar",
+                            StatusName = "Disponible"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Todos los ejemplares están ocupados en este momento",
+                            StatusName = "Rentado"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "El dueño pausó la publicación (invisible)",
+                            StatusName = "Pausado"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Eliminado lógicamente del sistema",
+                            StatusName = "Eliminado"
+                        });
+                });
+
+            modelBuilder.Entity("RentaloYa.Domain.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Herramientas"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Electrónicos"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Deportes"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Hogar"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Jardín"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Eventos"
+                        });
+                });
+
             modelBuilder.Entity("RentaloYa.Domain.Entities.Gender", b =>
                 {
                     b.Property<int>("IdGender")
@@ -54,6 +150,63 @@ namespace RentaloYa.Infrastructure.Migrations
                             IdGender = 3,
                             GenderName = "Otro"
                         });
+                });
+
+            modelBuilder.Entity("RentaloYa.Domain.Entities.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OwnerId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<int>("QuantityAvailable")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RentalTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ItemStatusId");
+
+                    b.HasIndex("OwnerId");
+
+                    b.HasIndex("RentalTypeId");
+
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.Permission", b =>
@@ -90,6 +243,45 @@ namespace RentaloYa.Infrastructure.Migrations
                         {
                             PermissionId = 3,
                             Permissionn = "Ver Reportes"
+                        });
+                });
+
+            modelBuilder.Entity("RentaloYa.Domain.Entities.RentalType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("TypeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RentalTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TypeName = "Por hora"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TypeName = "Por día"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            TypeName = "Por semana"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            TypeName = "Por mes"
                         });
                 });
 
@@ -194,7 +386,7 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.Property<int>("Gender_Id")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("IdSupa")
+                    b.Property<Guid?>("IdSupa")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
@@ -247,6 +439,41 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.ToTable("UsersRoles");
                 });
 
+            modelBuilder.Entity("RentaloYa.Domain.Entities.Item", b =>
+                {
+                    b.HasOne("RentaloYa.Domain.Entities.Category", "Category")
+                        .WithMany("Items")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ItemStatus", "ItemStatus")
+                        .WithMany("Items")
+                        .HasForeignKey("ItemStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RentaloYa.Domain.Entities.User", "Owner")
+                        .WithMany("Items")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RentaloYa.Domain.Entities.RentalType", "RentalType")
+                        .WithMany("Items")
+                        .HasForeignKey("RentalTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("ItemStatus");
+
+                    b.Navigation("Owner");
+
+                    b.Navigation("RentalType");
+                });
+
             modelBuilder.Entity("RentaloYa.Domain.Entities.RolePermission", b =>
                 {
                     b.HasOne("RentaloYa.Domain.Entities.Permission", "Permission")
@@ -296,6 +523,16 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ItemStatus", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("RentaloYa.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("Items");
+                });
+
             modelBuilder.Entity("RentaloYa.Domain.Entities.Gender", b =>
                 {
                     b.Navigation("users");
@@ -304,6 +541,11 @@ namespace RentaloYa.Infrastructure.Migrations
             modelBuilder.Entity("RentaloYa.Domain.Entities.Permission", b =>
                 {
                     b.Navigation("RolesPermissions");
+                });
+
+            modelBuilder.Entity("RentaloYa.Domain.Entities.RentalType", b =>
+                {
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.Role", b =>
@@ -315,6 +557,8 @@ namespace RentaloYa.Infrastructure.Migrations
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.User", b =>
                 {
+                    b.Navigation("Items");
+
                     b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
