@@ -78,7 +78,9 @@ namespace RentalWeb.Web.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, supabaseId), // Identificador único del usuario
                 new Claim(ClaimTypes.Name, name), // Nombre del usuario que se mostrará en User.Identity.Name
-                new Claim(ClaimTypes.Email, email) // Email del usuario
+                new Claim(ClaimTypes.Email, email), // Email del usuario
+                new Claim("SupabaseAccessToken", accessToken), // Un claim para el access_token
+                new Claim("SupabaseRefreshToken", refreshToken) // Un claim para el refresh_token
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

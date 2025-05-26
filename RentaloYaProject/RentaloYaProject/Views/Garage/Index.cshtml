@@ -14,7 +14,12 @@
                     <p class="card-text">Tipo de Renta: @item.TipoRenta</p>
                     <p class="card-text">Disponible: @(item.Disponible ? "Sí" : "No")</p>
                     <a asp-action="EditItem" asp-controller="Garage" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
-                    <a href="#" class="btn btn-danger">Eliminar</a>
+                    <form asp-action="DeleteItem" asp-controller="Garage" asp-route-id="@item.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('¿Estás seguro de que quieres eliminar este artículo? Esta acción es irreversible.');">
+                            Eliminar
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

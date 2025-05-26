@@ -39,6 +39,7 @@ namespace RentaloYa.Infrastructure.Repository
         {
             var entity = await GetByIdAsync(id);
             if (entity != null) _dbSet.Remove(entity);
+            _context.SaveChangesAsync();
         }
 
         public Task SaveChangesAsync() => _context.SaveChangesAsync();
