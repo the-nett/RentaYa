@@ -47,7 +47,9 @@ namespace RentalWeb.Web.Controllers
                 Nombre = dto.Name,
                 Cantidad = 1, // o lo que corresponda
                 TipoRenta = dto.RentalTypeName,
-                Disponible = dto.Status == "Disponible"
+                Disponible = dto.Status == "Disponible",
+                ImageUrl = dto.ImageUrl
+
             }).ToList();
 
             return View(viewModel);
@@ -131,22 +133,16 @@ namespace RentalWeb.Web.Controllers
             return View("AddItem", model);
         }
 
-        // Método GET para la vista de edición
-        [HttpGet]
+
+        // GET: /Garage/EditItem/{id}
         public async Task<IActionResult> EditItem(int id)
         {
-
             var itemToEdit = await _itemRepo.GetByIdAsync(id);
-
             if (itemToEdit == null)
             {
-                // Manejar caso donde el item no se encuentra
-                TempData["ErrorMessage"] = "El artículo no fue encontrado.";
-                return RedirectToAction("Index");
+                return NotFound();
             }
 
-            // 2. Mapear la entidad Item a tu CreateItemViewModel
-            // Dado que CreateItemViewModel ya tiene 'Id', podemos reutilizarlo.
             var viewModel = new CreateItemViewModel
             {
                 Id = itemToEdit.Id, // MUY IMPORTANTE: Pasar el Id al ViewModel
@@ -156,85 +152,80 @@ namespace RentalWeb.Web.Controllers
                 ImageUrl = itemToEdit.ImageUrl,
                 Location = itemToEdit.Location,
                 Quantity = itemToEdit.QuantityAvailable,
-                // Convertimos los IDs de las entidades a string para que coincidan con las propiedades del ViewModel
                 Category = itemToEdit.CategoryId.ToString(),
                 RentType = itemToEdit.RentalTypeId.ToString()
-                // Si el estado es editable, también lo mapearías aquí
             };
 
-            // 3. Obtener listas para los dropdowns
             await PopulateDropdowns(); // Este método pobla ViewData
 
             return View(viewModel);
         }
-        //-----------------Editar item----------------------------
+
+        // POST: /Garage/EditItem/{id}
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditItem(CreateItemViewModel model) // Reutilizamos CreateItemViewModel
+        [ValidateAntiForgeryToken] // Siempre recomendado para POST
+        public async Task<IActionResult> EditItem(CreateItemViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                await PopulateDropdowns();
-                return View(model);
-            }
-
-            try
-            {
+                // Primero, recupera el ítem existente de la base de datos para obtener su URL de imagen actual
                 var itemToUpdate = await _itemRepo.GetByIdAsync(model.Id);
-
                 if (itemToUpdate == null)
                 {
-                    TempData["ErrorMessage"] = "El artículo a actualizar no fue encontrado.";
-                    return RedirectToAction("Index");
+                    return NotFound();
                 }
 
-                // --- Lógica para subir/actualizar imagen a Supabase Storage ---
-                if (model.ImageFile != null)
+                string? currentImageUrl = itemToUpdate.ImageUrl; // Esta es la URL de la imagen que está actualmente en la DB
+
+                string? newImageUrl = currentImageUrl; // Inicializa la URL final con la actual, por si no se sube nueva imagen
+
+                // Si se seleccionó un nuevo archivo de imagen en el formulario
+                if (model.ImageFile != null && model.ImageFile.Length > 0)
                 {
-                    // Si hay una nueva imagen, subirla y obtener la nueva URL
-                    string? newImageUrl = await UploadImageToSupabase(model.ImageFile);
+                    // Si ya existía una imagen asociada a este ítem, la eliminamos de Supabase
+                    if (!string.IsNullOrEmpty(currentImageUrl))
+                    {
+                        var deleteSuccess = await DeleteImageFromSupabase(currentImageUrl);
+                        if (!deleteSuccess)
+                        {
+                            Console.WriteLine($"Advertencia: No se pudo eliminar la imagen antigua de Supabase: {currentImageUrl}. Continuar con la subida de la nueva.");
+                            // Aquí podrías decidir si quieres que esto sea un error fatal o solo una advertencia.
+                            // Por ahora, asumimos que la subida de la nueva imagen es más importante.
+                        }
+                    }
+
+                    // Ahora, subimos la nueva imagen a Supabase
+                    newImageUrl = await UploadImageToSupabase(model.ImageFile);
+
                     if (string.IsNullOrEmpty(newImageUrl))
                     {
                         ModelState.AddModelError("ImageFile", "Error al subir la nueva imagen a Supabase.");
-                        await PopulateDropdowns();
+                        await PopulateDropdowns(); // Rellena las listas para que la vista no falle
                         return View(model);
                     }
-
-                    // Opcional: Eliminar la imagen anterior de Supabase Storage
-                    // Esto requiere que la URL anterior se limpie correctamente.
-                    string oldImageUrl = itemToUpdate.ImageUrl;
-                    if (!string.IsNullOrEmpty(oldImageUrl))
-                    {
-                        await DeleteImageFromSupabase(oldImageUrl);
-                    }
-
-                    itemToUpdate.ImageUrl = newImageUrl; // Asignar la nueva URL
                 }
-                // Si model.ImageFile es null, la ImageUrl existente se mantiene si no se ha cambiado
+                // Si model.ImageFile es null, significa que el usuario no seleccionó una nueva imagen.
+                // En ese caso, newImageUrl ya es igual a currentImageUrl (la URL existente de la DB).
 
-                // --- Fin lógica subida/actualización imagen ---
-
+                // Mapear los datos del ViewModel al modelo de la base de datos (Item)
                 itemToUpdate.Name = model.Name;
                 itemToUpdate.Description = model.Description;
                 itemToUpdate.Price = model.Price;
-                // itemToUpdate.ImageUrl = model.ImageUrl; // Esta línea se mueve arriba si se sube nueva imagen
+                itemToUpdate.ImageUrl = newImageUrl; // Asigna la URL final (nueva o la antigua si no hubo cambio)
                 itemToUpdate.Location = model.Location;
                 itemToUpdate.QuantityAvailable = model.Quantity;
-                itemToUpdate.CategoryId = int.Parse(model.Category);
+                itemToUpdate.CategoryId = int.Parse(model.Category); // Asumo que Category y RentType son IDs de string que necesitan parseo
                 itemToUpdate.RentalTypeId = int.Parse(model.RentType);
 
                 await _itemRepo.UpdateAsync(itemToUpdate);
+                // No necesitas await _itemRepo.Save() aquí si UpdateAsync ya persiste los cambios
+                // o si Save() se llama de forma global en tu Unit of Work/Patrón.
 
-                TempData["SuccessMessage"] = "Artículo actualizado exitosamente.";
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
-            catch (Exception ex)
-            {
-                // _logger.LogError(ex, "Error al actualizar el artículo con ID {ItemId}", model.Id);
-                ModelState.AddModelError("", "Ocurrió un error inesperado al actualizar el artículo. Por favor, inténtelo de nuevo.");
-                await PopulateDropdowns();
-                return View(model);
-            }
+
+            await PopulateDropdowns();
+            return View(model);
         }
 
         /// <summary>
@@ -324,40 +315,40 @@ namespace RentalWeb.Web.Controllers
             }
         }
 
-        /// <summary>
-        /// Método auxiliar (opcional) para eliminar una imagen de Supabase Storage.
-        /// Se recomienda si quieres evitar "imágenes huérfanas" al actualizar.
-        /// </summary>
-        /// <param name="imageUrl">La URL completa de la imagen a eliminar.</param>
-        private async Task DeleteImageFromSupabase(string imageUrl)
+        // Este método toma la URL COMPLETA de la imagen para eliminarla.
+        private async Task<bool> DeleteImageFromSupabase(string imageUrl)
         {
-            var bucketName = _configuration["Supabase:BucketName"];
-            if (string.IsNullOrEmpty(bucketName))
+            if (string.IsNullOrEmpty(imageUrl))
             {
-                // Loguear error
-                return;
+                return false; // No hay URL para eliminar
             }
 
+            var bucketName = _configuration["Supabase:BucketName"];
             try
             {
-                // Parsear la URL para obtener el path del archivo dentro del bucket
-                // Ejemplo de URL: https://[project_id].supabase.co/storage/v1/object/public/bucket_name/path/to/file.jpg
-                // Necesitamos 'path/to/file.jpg'
                 var uri = new Uri(imageUrl);
-                var pathSegments = uri.Segments.Select(s => s.TrimEnd('/')).Skip(5).ToArray(); // Saltar /storage/v1/object/public/bucket_name/
-                var filePathToDelete = string.Join("/", pathSegments);
+                // La URL de Supabase es algo como: https://[project].supabase.co/storage/v1/object/public/[bucket]/[path/to/file.ext]
+                // Necesitamos extraer "[path/to/file.ext]"
+                var publicPathSegment = $"/storage/v1/object/public/{bucketName}/";
+                var relativePath = uri.AbsolutePath.Substring(uri.AbsolutePath.IndexOf(publicPathSegment) + publicPathSegment.Length);
 
-                if (!string.IsNullOrEmpty(filePathToDelete))
+                if (string.IsNullOrEmpty(relativePath))
                 {
-                    await _supabaseClient.Storage
-                        .From(bucketName)
-                        .Remove(new List<string> { filePathToDelete });
+                    Console.WriteLine($"Error: No se pudo extraer la ruta del archivo de la URL: {imageUrl}");
+                    return false;
                 }
+
+                // Supabase Storage Remove requiere un array de nombres de archivos/rutas
+                var response = await _supabaseClient.Storage
+                    .From(bucketName)
+                    .Remove(new List<string> { relativePath });
+
+                return response != null && response.Any(); // Si la respuesta no es nula y contiene elementos, la eliminación fue exitosa
             }
             catch (Exception ex)
             {
-                // Loguear la excepción
-                // _logger.LogError(ex, "Error al eliminar imagen de Supabase Storage con URL: {ImageUrl}", imageUrl);
+                Console.WriteLine($"General Exception during image deletion: {ex.Message}");
+                return false;
             }
         }
     }

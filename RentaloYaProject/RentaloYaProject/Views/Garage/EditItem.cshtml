@@ -1,79 +1,136 @@
 ﻿@model RentaloYa.Web.ViewModels.Garage.CreateItemViewModel
 
 @{
-    ViewData["Title"] = "Editar Artículo"; // Título de la página en el navegador
+    ViewData["Title"] = "Editar Artículo";
 }
 
-<h2>Editar Artículo del Garaje</h2>
-
-<hr />
 <div class="row">
-    <div class="col-md-8 offset-md-2">
-        <form asp-action="EditItem" asp-controller="Garage" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form asp-action="EditItem"
+                      asp-controller="Garage"
+                      method="post"
+                      enctype="multipart/form-data">
 
-            <input type="hidden" asp-for="Id" />
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="ImageUrl" />
+
+                    <!-- Nombre -->
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <!-- Precio / Cantidad / Ubicación -->
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label asp-for="Price" class="form-label"></label>
+                            <input asp-for="Price" type="number" step="0.01" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Quantity" class="form-label"></label>
+                            <input asp-for="Quantity" type="number" class="form-control" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Location" class="form-label"></label>
+                            <input asp-for="Location" class="form-control" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Categoría / Tipo de Renta -->
+                    <div class="row g-3 mt-3">
+                        <div class="col-md-6">
+                            <label asp-for="Category" class="form-label"></label>
+                            <select asp-for="Category" asp-items="ViewBag.CategoryList" class="form-select">
+                                <option value="">-- Seleccionar Categoría --</option>
+                            </select>
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="RentType" class="form-label"></label>
+                            <select asp-for="RentType" asp-items="ViewBag.RentalTypeList" class="form-select">
+                                <option value="">-- Seleccionar Tipo de Renta --</option>
+                            </select>
+                            <span asp-validation-for="RentType" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <!-- Imagen actual + selector de nueva imagen -->
+                    <div class="row g-4">
+                        <div class="col-md-6 d-flex flex-column">
+                            <label class="form-label">Imagen Actual / Vista previa:</label>
+                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            {
+                                <img id="imagePreview"
+                                     src="@Model.ImageUrl"
+                                     alt="Imagen del artículo"
+                                     class="img-thumbnail align-self-start"
+                                     style="max-width: 100%; height: auto;" />
+                            }
+                            else
+                            {
+                                <img id="imagePreview"
+                                     src="https://via.placeholder.com/200x200?text=Sin+imagen"
+                                     class="img-thumbnail align-self-start" />
+                            }
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="ImageFile" class="form-label">Cambiar Imagen:</label>
+                            <input type="file"
+                                   asp-for="ImageFile"
+                                   class="form-control"
+                                   accept="image/*"
+                                   id="imageInput" />
+                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            <small class="text-muted d-block mt-2">
+                                Elige un archivo para actualizar la imagen. Verás la vista previa al instante.
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="mt-4 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success me-2">Guardar Cambios</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
             </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" type="number" step="0.01" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Quantity" class="control-label"></label>
-                <input asp-for="Quantity" class="form-control" type="number" />
-                <span asp-validation-for="Quantity" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="Category" class="control-label"></label>
-                <select asp-for="Category" asp-items="ViewBag.CategoryList" class="form-control">
-                    <option value="">-- Seleccionar Categoría --</option>
-                </select>
-                <span asp-validation-for="Category" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mb-3">
-                <label asp-for="RentType" class="control-label"></label>
-                <select asp-for="RentType" asp-items="ViewBag.RentalTypeList" class="form-control">
-                    <option value="">-- Seleccionar Tipo de Renta --</option>
-                </select>
-                <span asp-validation-for="RentType" class="text-danger"></span>
-            </div>
-
-            <div class="form-group mt-4">
-                <button type="submit" class="btn btn-success">Guardar Cambios</button>
-                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Vista previa instantánea de la nueva imagen seleccionada
+        document.getElementById('imageInput')
+                .addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('imagePreview').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 }

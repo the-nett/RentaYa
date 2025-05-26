@@ -14,27 +14,60 @@
     <header class="bg-white border-bottom shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light container">
             <a class="navbar-brand fs-4 fw-bold text-dark" href="/">RentalWeb</a>
-            <div class="ms-auto">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <div class="d-flex align-items-center">
-                        @* Contenedor Flexbox *@
-                        <span class="navbar-text me-3">
-                            Hola, <span class="fw-semibold">@User.Identity.Name</span>!
-                        </span>
-                        <a class="nav-link text-secondary" href="/Auth/Logout" title="Cerrar Sesión">
-                            <i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión
-                        </a>
-                    </div>
-                }
-                else
-                {
-                    <a class="btn btn-link text-secondary text-decoration-none me-2" asp-controller="Login" asp-action="Index">Iniciar Sesión</a>
-                    <a class="btn btn-primary" asp-controller="Login" asp-action="Index">Registrarse</a>
-                }
+
+            <!-- Enlace a Garaje (izquierda) -->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="nav-link text-dark d-none d-lg-inline me-3" asp-controller="Garage" asp-action="Index">
+                    <i class="bi bi-house-door me-1"></i> Garaje
+                </a>
+            }
+
+            <!-- Botón hamburguesa para responsive -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRental"
+                    aria-controls="navbarRental" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenido colapsable -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarRental">
+                <ul class="navbar-nav align-items-lg-center">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <!-- Garaje en menú colapsado (solo visible en móviles) -->
+                        <li class="nav-item d-lg-none">
+                            <a class="nav-link text-dark" asp-controller="Garage" asp-action="Index">
+                                <i class="bi bi-house-door me-1"></i> Garaje
+                            </a>
+                        </li>
+
+                        <li class="nav-item me-3">
+                            <span class="navbar-text">
+                                Hola, <strong>@User.Identity.Name</strong>!
+                            </span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary d-flex align-items-center" href="/Auth/Logout">
+                                <i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item me-2">
+                            <a class="btn btn-link text-secondary text-decoration-none" asp-controller="Login" asp-action="Index">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" asp-controller="Login" asp-action="Index">Registrarse</a>
+                        </li>
+                    }
+                </ul>
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
