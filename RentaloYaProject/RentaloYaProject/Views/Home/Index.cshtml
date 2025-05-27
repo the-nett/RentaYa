@@ -14,24 +14,30 @@
                         Plataforma para rentar artículos de todo tipo de manera fácil y segura
                     </p>
 
-                    <div class="input-group mb-4 shadow-sm rounded-pill p-1">
-                        <span class="input-group-text border-0 bg-transparent ps-4" id="search-addon">
-                            <i class="bi bi-search text-muted"></i> @* Icono de lupa de Bootstrap Icons *@
-                        </span>
-                        <input type="text" class="form-control border-0 rounded-pill ps-2 pe-5 py-3" placeholder="¿Qué estás buscando?" aria-label="Search" aria-describedby="search-addon">
-                        <button class="btn btn-primary rounded-pill me-1" type="button">Buscar</button>
-                    </div>
+                 
+                    <form asp-controller="PublicPosts" asp-action="Index" method="get">
+                        <div class="input-group mb-4 shadow-sm rounded-pill p-1">
+                            <span class="input-group-text border-0 bg-transparent ps-4" id="search-addon">
+                                <i class="bi bi-search text-muted"></i> 
+                            </span>
+                            <input type="text" class="form-control border-0 rounded-pill ps-2 pe-5 py-3"
+                                   placeholder="¿Qué estás buscando?" aria-label="Search" aria-describedby="search-addon"
+                                   name="searchTerm" id="homeSearchInput"> 
+                            <button class="btn btn-primary rounded-pill me-1" type="submit">Buscar</button> 
+                        </div>
+                    </form>
+    
 
                     <div class="bg-info bg-opacity-10 p-4 rounded-3 border border-2 border-info border-dashed mb-5">
                         <div class="d-flex align-items-center justify-content-center gap-3 mb-3">
-                            <i class="bi bi-camera fs-3 text-info"></i> @* Icono de cámara de Bootstrap Icons *@
+                            <i class="bi bi-camera fs-3 text-info"></i> 
                             <h2 class="h5 fw-semibold mb-0">Búsqueda por Imagen</h2>
                         </div>
                         <p class="text-muted mb-4">
                             ¿No sabes cómo se llama? Sube una foto y encontraremos artículos similares
                         </p>
-                        <button class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
-                            <i class="bi bi-upload"></i> @* Icono de subida de Bootstrap Icons *@
+                        <button class="btn btn-outline-primary d-inline-flex align-items-center gap-2" id="homeImageSearchButton">
+                            <i class="bi bi-upload"></i> 
                             Subir Imagen
                         </button>
                     </div>
@@ -66,7 +72,8 @@
                         var imagePath = $"/images/categories/{imageName}"; // Ruta relativa a wwwroot
 
                         <div class="col">
-                            <a href="@Url.Action("Search", "Home", new { category = categoryName })" class="d-block bg-white rounded-3 p-3 text-center shadow-sm text-decoration-none text-dark hover-shadow">
+                           
+                            <a href="@Url.Action("Index", "PublicPosts", new { category = categoryName })" class="d-block bg-white rounded-3 p-3 text-center shadow-sm text-decoration-none text-dark hover-shadow">
                                 <div class="rounded-circle mx-auto mb-3 overflow-hidden d-flex align-items-center justify-content-center" style="width: 64px; height: 64px;">
                                     @* Aquí renderizamos la imagen usando la ruta construida *@
                                     <img src="@imagePath" alt="@categoryName" class="img-fluid" style="max-width: 100%; max-height: 100%; object-fit: cover;">
@@ -137,27 +144,36 @@
 
 @section Scripts {
     <style>
-        .hover-shadow:hover {
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+                .hover-shadow:hover {
+                        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+
         }
 
-        .hover-white:hover {
-            color: #fff !important;
+                .hover-white:hover {
+                        color: #fff !important;
+
         }
 
-        .input-group > .form-control.rounded-pill {
-            border-top-right-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
+                .input-group > .form-control.rounded-pill {
+                        border-top-right-radius: 0 !important;
+                        border-bottom-right-radius: 0 !important;
+
         }
 
-        .input-group > .btn.rounded-pill {
-            z-index: 2; /* Ensure button is above input border */
-            border-top-left-radius: 0 !important;
-            border-bottom-left-radius: 0 !important;
+                .input-group > .btn.rounded-pill {
+                        z-index: 2; /* Ensure button is above input border */
+                        border-top-left-radius: 0 !important;
+                        border-bottom-left-radius: 0 !important;
+
         }
+
+
         /* Estilo para la búsqueda por imagen */
-        .border-dashed {
-            border-style: dashed !important;
+                .border-dashed {
+                        border-style: dashed !important;
+
         }
+
+
     </style>
 }

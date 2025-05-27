@@ -11,5 +11,7 @@ namespace RentaloYa.Application.Services.InterfacesServices
         Task UpdatePostAsync(Post post); // Nuevo método para actualizar un post
         Task DeletePostAsync(int postId);
         Task SaveChangesAsync(); // Necesario si UpdateAsync no guarda los cambios internamente
+
+        Task<List<Post>> GetAllActivePostsWithDetailsAsync();
     }
 }

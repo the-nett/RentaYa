@@ -67,5 +67,16 @@ namespace RentaloYa.Infrastructure.Repository
                 _context.Posts.Remove(post);
             }
         }
+        public async Task<List<Post>> GetAllActivePostsWithDetailsAsync()
+        {
+            return await _context.Posts
+                .Include(p => p.Item)
+                    .ThenInclude(item => item.RentalType) // Para el tipo de renta
+                .Include(p => p.Item)
+                    .ThenInclude(item => item.ItemStatus) // Para el estado del item
+                .Include(p => p.User) // Incluir el usuario para obtener el UserName
+                .Where(p => p.Item != null && p.Item.ItemStatus != null && p.Item.ItemStatus.StatusName == "Disponible")
+                .ToListAsync();
+        }
     }
 }

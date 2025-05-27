@@ -209,6 +209,26 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.ToTable("Items");
                 });
 
+            modelBuilder.Entity("RentaloYa.Domain.Entities.ItemTag", b =>
+                {
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int")
+                        .HasColumnName("item_id");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int")
+                        .HasColumnName("tag_id");
+
+                    b.Property<float>("Confidence")
+                        .HasColumnType("real");
+
+                    b.HasKey("ItemId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ItemTags", (string)null);
+                });
+
             modelBuilder.Entity("RentaloYa.Domain.Entities.Permission", b =>
                 {
                     b.Property<int>("PermissionId")
@@ -280,24 +300,6 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Posts", (string)null);
-                });
-
-            modelBuilder.Entity("RentaloYa.Domain.Entities.PublicationTag", b =>
-                {
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Confidence")
-                        .HasColumnType("real");
-
-                    b.HasKey("PostId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("PublicationTags", (string)null);
                 });
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.RentalType", b =>
@@ -548,6 +550,25 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.Navigation("RentalType");
                 });
 
+            modelBuilder.Entity("RentaloYa.Domain.Entities.ItemTag", b =>
+                {
+                    b.HasOne("RentaloYa.Domain.Entities.Item", "Item")
+                        .WithMany("ItemTags")
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RentaloYa.Domain.Entities.Tag", "Tag")
+                        .WithMany("ItemTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
+
+                    b.Navigation("Tag");
+                });
+
             modelBuilder.Entity("RentaloYa.Domain.Entities.Post", b =>
                 {
                     b.HasOne("RentaloYa.Domain.Entities.Item", "Item")
@@ -565,25 +586,6 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.Navigation("Item");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("RentaloYa.Domain.Entities.PublicationTag", b =>
-                {
-                    b.HasOne("RentaloYa.Domain.Entities.Post", "Post")
-                        .WithMany("Tags")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RentaloYa.Domain.Entities.Tag", "Tag")
-                        .WithMany("PublicationTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Post");
-
-                    b.Navigation("Tag");
                 });
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.RolePermission", b =>
@@ -650,14 +652,14 @@ namespace RentaloYa.Infrastructure.Migrations
                     b.Navigation("users");
                 });
 
+            modelBuilder.Entity("RentaloYa.Domain.Entities.Item", b =>
+                {
+                    b.Navigation("ItemTags");
+                });
+
             modelBuilder.Entity("RentaloYa.Domain.Entities.Permission", b =>
                 {
                     b.Navigation("RolesPermissions");
-                });
-
-            modelBuilder.Entity("RentaloYa.Domain.Entities.Post", b =>
-                {
-                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.RentalType", b =>
@@ -674,7 +676,7 @@ namespace RentaloYa.Infrastructure.Migrations
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.Tag", b =>
                 {
-                    b.Navigation("PublicationTags");
+                    b.Navigation("ItemTags");
                 });
 
             modelBuilder.Entity("RentaloYa.Domain.Entities.User", b =>

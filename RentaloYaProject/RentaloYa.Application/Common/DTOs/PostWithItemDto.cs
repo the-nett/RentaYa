@@ -13,6 +13,6 @@
         public decimal Price { get; set; }
         public string RentalType { get; set; }
         public int QuantityAvailable { get; set; }
-
+        public string? Username { get; set; }
     }
 }

@@ -219,5 +219,62 @@ namespace RentaloYa.Application.Services
                 Message = "Post eliminado exitosamente."
             };
         }
+        public async Task<List<PostWithItemDto>> GetAllActivePostsForListingAsync()
+        {
+            var posts = await _postRepository.GetAllActivePostsWithDetailsAsync();
+
+            return posts.Select(p => new PostWithItemDto
+            {
+                PostId = p.PostId,
+                Title = p.Title,
+                Description = p.Description ?? "(Sin descripción)",
+                ItemName = p.Item?.Name ?? "(Sin nombre)",
+                Status = p.Item?.ItemStatus?.StatusName ?? "Desconocido",
+                QuantityAvailable = p.Item?.QuantityAvailable ?? 0,
+                RentalType = p.Item?.RentalType?.TypeName ?? "Desconocido",
+                Price = p.Item?.Price ?? 0m,
+                Location = p.Item?.Location,
+                ImageUrl = p.Item?.ImageUrl,
+                CreatedAt = p.CreatedAt,
+                Username = p.User?.Username // Mapeando el nombre de usuario desde la entidad User
+            }).ToList();
+        }
+        public async Task<List<PostWithItemDto>> GetAllActivePostsForListingAsync(string? searchTerm = null)
+        {
+            // Primero, obtener todos los posts activos con sus detalles
+            var posts = await _postRepository.GetAllActivePostsWithDetailsAsync();
+
+            // Si hay un término de búsqueda, aplicar el filtro en memoria
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var lowerSearchTerm = searchTerm.ToLowerInvariant(); // Usar InvariantCulture para comparaciones
+
+                posts = posts.Where(p =>
+                    (p.Title != null && p.Title.ToLowerInvariant().Contains(lowerSearchTerm)) ||
+                    (p.Description != null && p.Description.ToLowerInvariant().Contains(lowerSearchTerm)) ||
+                    (p.Item != null && p.Item.Name != null && p.Item.Name.ToLowerInvariant().Contains(lowerSearchTerm)) ||
+                    (p.Item != null && p.Item.Location != null && p.Item.Location.ToLowerInvariant().Contains(lowerSearchTerm)) ||
+                    (p.User != null && p.User.Username != null && p.User.Username.ToLowerInvariant().Contains(lowerSearchTerm))
+                ).ToList();
+            }
+
+            // Mapear los resultados (filtrados o no) a PostWithItemDto
+            return posts.Select(p => new PostWithItemDto
+            {
+                PostId = p.PostId,
+                Title = p.Title,
+                Description = p.Description ?? "(Sin descripción)", // Manejar posibles nulls
+                ItemName = p.Item?.Name ?? "(Sin nombre)",          // Manejar posibles nulls
+                Status = p.Item?.ItemStatus?.StatusName ?? "Desconocido", // Manejar posibles nulls
+                QuantityAvailable = p.Item?.QuantityAvailable ?? 0,
+                RentalType = p.Item?.RentalType?.TypeName ?? "Desconocido", // Manejar posibles nulls
+                Price = p.Item?.Price ?? 0m,
+                Location = p.Item?.Location,
+                ImageUrl = p.Item?.ImageUrl,
+                CreatedAt = p.CreatedAt,
+                Username = p.User?.Username
+            }).ToList();
+        }
+
     }
 }

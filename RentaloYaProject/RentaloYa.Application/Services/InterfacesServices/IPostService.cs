@@ -10,5 +10,6 @@ namespace RentaloYa.Application.Services.InterfacesServices
         Task<PostDetailDto?> GetPostForEditAsync(int postId, string userEmail); // Nuevo método para cargar datos para edición
         Task<EditPostResultDto> EditPostAsync(EditPostDto editPostDto);
         Task<DeletePostResultDto> DeletePostAsync(int postId, string userEmail);
+        Task<List<PostWithItemDto>> GetAllActivePostsForListingAsync(string? searchTerm = null);
     }
 }

@@ -15,6 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        // Fixing the invalid path syntax and ensuring the correct view path is used
+        //return View("~/Views/ImageAnalysis/Index.cshtml");
         return View();
     }
 

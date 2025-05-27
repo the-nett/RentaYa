@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ContainingType": "RentalWeb.Web.Controllers.ImageAnalysisController",
+    "Method": "AnalyzeImage",
+    "RelativePath": "api/ImageAnalysis/analyze",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

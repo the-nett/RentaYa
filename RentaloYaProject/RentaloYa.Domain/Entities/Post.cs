@@ -24,6 +24,5 @@ namespace RentaloYa.Domain.Entities
         // Navegación
         public Item Item { get; set; } = null!;
         public User User { get; set; } = null!;
-        public ICollection<PublicationTag> Tags { get; set; } = new List<PublicationTag>();
     }
 }

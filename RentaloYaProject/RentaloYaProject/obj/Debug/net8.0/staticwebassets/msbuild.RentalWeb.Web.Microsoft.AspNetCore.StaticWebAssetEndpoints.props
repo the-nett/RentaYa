@@ -820,13 +820,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\RentalWeb.Web.gyfloh7prs.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-CPAzkG/IcZYrqo8A6V62pOkfM4h7qgOTiD3qKuEL7UQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1131"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022CPAzkG/IcZYrqo8A6V62pOkfM4h7qgOTiD3qKuEL7UQ=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 06:16:14 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1131"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022CPAzkG/IcZYrqo8A6V62pOkfM4h7qgOTiD3qKuEL7UQ=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 17:54:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/RentalWeb.Web/RentalWeb.Web.gyfloh7prs.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\RentalWeb.Web.gyfloh7prs.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gyfloh7prs"},{"Name":"integrity","Value":"sha256-CPAzkG/IcZYrqo8A6V62pOkfM4h7qgOTiD3qKuEL7UQ="},{"Name":"label","Value":"_content/RentalWeb.Web/RentalWeb.Web.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1131"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022CPAzkG/IcZYrqo8A6V62pOkfM4h7qgOTiD3qKuEL7UQ=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 06:16:14 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1131"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022CPAzkG/IcZYrqo8A6V62pOkfM4h7qgOTiD3qKuEL7UQ=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 17:54:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/RentalWeb.Web/taladroRenta.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\taladroRenta.jpg'))</AssetFile>

@@ -13,5 +13,6 @@
         public decimal Price { get; set; }
         public string RentalType { get; set; } = null!;
         public int QuantityAvailable { get; set; }
+        public string UserName { get; set; } = null!; // Agregado para mostrar el nombre de usuario del creador del post
     }
 }

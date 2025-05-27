@@ -10,6 +10,6 @@ namespace RentaloYa.Domain.Entities
         [Required]
         public string Name { get; set; } = null!;
 
-        public ICollection<PublicationTag> PublicationTags { get; set; } = new List<PublicationTag>();
+        public ICollection<ItemTag> ItemTags { get; set; } = new List<ItemTag>();
     }
 }

@@ -6,10 +6,8 @@ using RentaloYa.Infrastructure.Data;
 using RentaloYa.Infrastructure.ExternalServices;
 using RentaloYa.Infrastructure.Repository;
 using Supabase;
-using Microsoft.AspNetCore.Authentication.Cookies; // Necesario para acceder a las opciones de cookie
-using System.Security.Claims; // Necesario para trabajar con Claims
-
-// Importante: Necesitas este using para IHttpContextAccessor
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Http; // Añade este using
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,60 +17,71 @@ builder.Services.AddControllersWithViews();
 
 // ***** NUEVO: Necesario para acceder al HttpContext (usuario actual) desde la inyección de dependencias *****
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient(); // Útil para servicios que hagan llamadas HTTP salientes (como Gemini o SupabaseAuthClient)
 
-//DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnectionDev")));
-//Dependency injection
+// DbContext
+// Asegúrate de que "LocalConnectionDev" esté definido en appsettings.json
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+    option.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnectionDev")));
+
+// Dependency Injection - Repositorios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IGenderRepository, GenderRepository>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<ISupabaseAuthProvider, SupabaseAuthClient>();
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Si tienes una implementación genérica
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddScoped<IPostRepository, PostRepository>(); // Añadido
+// Si tienes repositorios para Categorias, RentalTypes, etc., que usen IRepository<T>, ya están cubiertos por la línea de arriba.
+
+// Dependency Injection - Servicios de Aplicación
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ISupabaseAuthProvider, SupabaseAuthClient>(); // Proveedor de autenticación Supabase
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IItemService, ItemService>();
-builder.Services.AddScoped<IPostRepository, PostRepository>();
-builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<IPostService, PostService>(); // Añadido
+builder.Services.AddScoped<IImageTaggingService, GeminiImageTaggingService>(); // Servicio de etiquetado de imágenes
 
-
-// --- INICIO: CAMBIO CLAVE EN LA CONFIGURACIÓN DE SUPABASE.CLIENT ---
-// Mantenemos AddScoped, pero ahora la función que crea el cliente
-// es inteligente sobre el usuario actual.
+// --- INICIO: CONFIGURACIÓN AVANZADA DE SUPABASE.CLIENT ---
+// Mantenemos AddScoped para que cada solicitud obtenga una instancia de Supabase.Client
+// configurada con el usuario actual, si está logueado.
 builder.Services.AddScoped<Supabase.Client>(sp =>
 {
-    // Obtenemos el HttpContextAccessor del proveedor de servicios.
-    // Esto nos permite acceder al contexto HTTP de la solicitud actual.
     var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
     var user = httpContextAccessor.HttpContext?.User; // Obtenemos el ClaimsPrincipal del usuario logueado
 
-    // Obtenemos la URL y la Clave Pública (AnonKey) de Supabase desde la configuración.
     var supabaseUrl = builder.Configuration["Supabase:Url"];
     var supabaseAnonKey = builder.Configuration["Supabase:PublicKey"]; // Asegúrate de que esta es tu ANON_KEY (public key)
 
-    // Recuperamos el access_token y refresh_token de los Claims del usuario.
-    // Estos claims deben haber sido guardados en el Paso 1 (TokenValidation Controller).
-    var accessToken = user?.FindFirst("SupabaseAccessToken")?.Value;
-    var refreshToken = user?.FindFirst("SupabaseRefreshToken")?.Value;
+    // Validar que las configuraciones de Supabase no sean nulas o vacías
+    if (string.IsNullOrEmpty(supabaseUrl))
+    {
+        throw new InvalidOperationException("Supabase:Url is not configured in appsettings.json.");
+    }
+    if (string.IsNullOrEmpty(supabaseAnonKey))
+    {
+        throw new InvalidOperationException("Supabase:PublicKey is not configured in appsettings.json.");
+    }
 
-    // Configuración de opciones para el cliente Supabase.
     var options = new SupabaseOptions
     {
-        AutoRefreshToken = true,       // Muy importante para mantener la sesión viva
-        AutoConnectRealtime = true,    // Si lo necesitas, manténlo
-
+        AutoRefreshToken = true,
+        AutoConnectRealtime = true,
+        // Puedes añadir o quitar más opciones aquí según tus necesidades
+        // por ejemplo, Debug = true para ver logs internos de Supabase-csharp
     };
 
     Supabase.Client client;
 
-    // Si hay un usuario autenticado (es decir, tenemos un access_token y refresh_token en los claims)
+    // Recuperamos el access_token y refresh_token de los Claims del usuario.
+    // Estos claims deben haber sido guardados en el proceso de login/registro.
+    var accessToken = user?.FindFirst("SupabaseAccessToken")?.Value;
+    var refreshToken = user?.FindFirst("SupabaseRefreshToken")?.Value;
+
     if (!string.IsNullOrEmpty(accessToken) && !string.IsNullOrEmpty(refreshToken))
     {
-        // Creamos el cliente de Supabase.
+        // Creamos el cliente de Supabase con los tokens del usuario.
         client = new Supabase.Client(supabaseUrl, supabaseAnonKey, options);
-
-        // ¡Este es el paso crítico! Le decimos al cliente de Supabase que establezca la sesión
-        // con el token del usuario actual. Esto hace que las futuras llamadas a Supabase
-        // desde este cliente (durante esta solicitud HTTP) se autentiquen como ese usuario.
+        // Establecemos la sesión con el token del usuario actual.
+        // Esto hace que las futuras llamadas a Supabase desde este cliente se autentiquen como ese usuario.
         client.Auth.SetSession(accessToken, refreshToken);
     }
     else
@@ -80,23 +89,25 @@ builder.Services.AddScoped<Supabase.Client>(sp =>
         // Si no hay un usuario autenticado en la solicitud actual (ej. para páginas públicas
         // o antes de que el usuario haya iniciado sesión), inicializamos el cliente
         // solo con la clave anónima. Esto es seguro y permite acceso público a Supabase
-        // si tus políticas lo permiten (ej. lectura pública de ítems).
+        // si tus políticas de RLS lo permiten (ej. lectura pública de ítems).
         client = new Supabase.Client(supabaseUrl, supabaseAnonKey, options);
     }
 
     return client; // Devolvemos la instancia del cliente Supabase configurada para esta solicitud.
 });
-// --- FIN: CAMBIO CLAVE EN LA CONFIGURACIÓN DE SUPABASE.CLIENT ---
+// --- FIN: CONFIGURACIÓN AVANZADA DE SUPABASE.CLIENT ---
 
 
-// Configurar Autenticación por Cookies (sin cambios aquí)
-builder.Services.AddAuthentication("Cookies")
+// Configurar Autenticación por Cookies
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) // Mejor usar la constante
     .AddCookie(options =>
     {
         options.LoginPath = "/Auth/Login";
         options.AccessDeniedPath = "/Auth/AccessDenied";
         options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
         options.SlidingExpiration = true;
+        // Si necesitas persistir el token de Supabase en la cookie, podrías hacer algo así
+        // options.Events.OnValidatePrincipal = async context => { /* Lógica para revalidar/refrescar token de Supabase */ };
     });
 
 var app = builder.Build();
@@ -113,11 +124,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Habilitar la autenticación y la autorización (el orden es importante)
-app.UseAuthentication(); // Debe ir antes de UseAuthorization
+// Habilitar la autenticación y la autorización (el orden es importante: Authentication antes de Authorization)
+app.UseAuthentication();
 app.UseAuthorization();
 
-// Rutas de tu aplicación (sin cambios aquí)
+// Rutas de tu aplicación
 app.MapControllerRoute(
     name: "supabase_callback",
     pattern: "auth/callback/supabase",

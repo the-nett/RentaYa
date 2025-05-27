@@ -15,7 +15,6 @@
         <nav class="navbar navbar-expand-lg navbar-light container">
             <a class="navbar-brand fs-4 fw-bold text-dark" href="/">RentalWeb</a>
 
-            <!-- Enlace a Garaje (izquierda) -->
             @if (User.Identity.IsAuthenticated)
             {
                 <a class="nav-link text-dark d-none d-lg-inline me-3" asp-controller="Garage" asp-action="Index">
@@ -26,18 +25,27 @@
                 </a>
             }
 
-            <!-- Botón hamburguesa para responsive -->
+            
+            <a class="nav-link text-dark d-none d-lg-inline me-3" asp-controller="PublicPosts" asp-action="Index">
+                <i class="bi bi-grid-3x3-gap me-1"></i> Publicaciones
+            </a>
+
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarRental"
                     aria-controls="navbarRental" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Contenido colapsable -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarRental">
                 <ul class="navbar-nav align-items-lg-center">
+                    
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link text-dark" asp-controller="PublicPosts" asp-action="Index">
+                            <i class="bi bi-grid-3x3-gap me-1"></i> Publicaciones
+                        </a>
+                    </li>
+
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <!-- Garaje en menú colapsado (solo visible en móviles) -->
                         <li class="nav-item d-lg-none">
                             <a class="nav-link text-dark" asp-controller="Garage" asp-action="Index">
                                 <i class="bi bi-house-door me-1"></i> Garaje
@@ -74,6 +82,7 @@
             </div>
         </nav>
     </header>
+
 
 
     <div class="container">

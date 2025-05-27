@@ -41,5 +41,7 @@ namespace RentaloYa.Domain.Entities
         // Propiedad de navegación al usuario que publicó el artículo
         [ForeignKey("OwnerId")]
         public User Owner { get; set; } = null!;
+
+        public ICollection<ItemTag> ItemTags { get; set; } = new List<ItemTag>();
     }
 }
