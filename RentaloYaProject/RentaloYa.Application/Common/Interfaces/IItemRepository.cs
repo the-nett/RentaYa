@@ -16,5 +16,7 @@ namespace RentaloYa.Application.Common.Interfaces
         // SaveChangesAsync() ya estaría en IRepository<T> si lo manejas ahí
         // Si no lo manejas en IRepository<T>, añádelo aquí:
         Task SaveChangesAsync();
+        //Task<IEnumerable<object>> GetItemsByTagNamesAsync(List<string> geminiTagNames);
+        Task<IEnumerable<Post>> GetPostsByImageTagNamesAsync(IEnumerable<string> tagNames);
     }
 }

@@ -840,6 +840,7 @@ namespace RentalWeb.Web.Controllers
         {
             try
             {
+                Thread.Sleep(200);
                 // Antes de eliminar el ítem, intenta eliminar su imagen si existe
                 var itemToDelete = await _itemRepo.GetByIdAsync(id);
                 if (itemToDelete != null && !string.IsNullOrEmpty(itemToDelete.ImageUrl))

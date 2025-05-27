@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using RentaloYa.Application.Common.Interfaces;
-using RentaloYa.Application.Services;
-using RentaloYa.Application.Services.InterfacesServices;
-using RentaloYa.Infrastructure.Data;
-using RentaloYa.Infrastructure.ExternalServices;
-using RentaloYa.Infrastructure.Repository;
+using RentaloYa.Application.Common.Interfaces; // Para IItemRepository, ISearchService, IImageTaggingService
+using RentaloYa.Application.Services; // Para SearchService, ItemService, UserService, AuthService
+using RentaloYa.Application.Services.InterfacesServices; // Para IAuthService, IUserService, IItemService, IPostService
+using RentaloYa.Infrastructure.Data; // Para ApplicationDbContext
+using RentaloYa.Infrastructure.ExternalServices; // Para GeminiImageTaggingService, SupabaseAuthClient
+using RentaloYa.Infrastructure.Repository; // Para ItemRepository, UserRepository, GenderRepository, PostRepository, Repository<T>
 using Supabase;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
@@ -30,7 +30,6 @@ builder.Services.AddScoped<IGenderRepository, GenderRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Si tienes una implementación genérica
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IPostRepository, PostRepository>(); // Añadido
-// Si tienes repositorios para Categorias, RentalTypes, etc., que usen IRepository<T>, ya están cubiertos por la línea de arriba.
 
 // Dependency Injection - Servicios de Aplicación
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -38,7 +37,10 @@ builder.Services.AddScoped<ISupabaseAuthProvider, SupabaseAuthClient>(); // Prov
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IItemService, ItemService>();
 builder.Services.AddScoped<IPostService, PostService>(); // Añadido
+
+// ***** NUEVAS INYECCIONES AÑADIDAS/REVISADAS *****
 builder.Services.AddScoped<IImageTaggingService, GeminiImageTaggingService>(); // Servicio de etiquetado de imágenes
+builder.Services.AddScoped<ISearchService, SearchService>(); // ¡El servicio de búsqueda que usa el controlador!
 
 // --- INICIO: CONFIGURACIÓN AVANZADA DE SUPABASE.CLIENT ---
 // Mantenemos AddScoped para que cada solicitud obtenga una instancia de Supabase.Client

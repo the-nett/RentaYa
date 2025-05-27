@@ -109,5 +109,40 @@ namespace RentaloYa.Infrastructure.Repository
         {
             await _context.SaveChangesAsync();
         }
+        public async Task<IEnumerable<Post>> GetPostsByImageTagNamesAsync(IEnumerable<string> tagNames)
+        {
+            if (tagNames == null || !tagNames.Any())
+            {
+                return Enumerable.Empty<Post>();
+            }
+
+            var normalizedTagNames = tagNames.Select(t => t.ToLower()).Distinct().ToList();
+
+            // La consulta ahora empieza desde la tabla de Posts
+            var posts = await _context.Posts
+                // Incluimos el Item que está asociado a este Post
+                .Include(p => p.Item)
+                    // Dentro del Item, incluimos sus Tags (y el objeto Tag real)
+                    .ThenInclude(i => i.ItemTags)
+                        .ThenInclude(it => it.Tag)
+                // Incluimos otras propiedades del Item que necesitamos para el DTO
+               // .Include(p => p.Item.ImageUrl) // Para la MainImageUrl
+                .Include(p => p.Item.Category) // Para CategoryName
+                .Include(p => p.Item.RentalType) // Para RentalTypeName
+                .Include(p => p.Item.ItemStatus) // Para Status
+                .Include(p => p.Item.Owner) // El Owner del Item (es un User)
+
+                // Incluimos el Usuario que creó el Post
+                .Include(p => p.User) // Para UserName del creador del Post
+
+                // La condición de búsqueda: queremos Posts cuyo Item asociado tenga al menos una de las tags
+                .Where(post => post.Item != null && // Nos aseguramos de que el Item asociado exista
+                                post.Item.ItemTags.Any(itemTag =>
+                                    normalizedTagNames.Contains(itemTag.Tag.Name.ToLower())
+                                ))
+                .ToListAsync();
+
+            return posts;
+        }
     }
 }

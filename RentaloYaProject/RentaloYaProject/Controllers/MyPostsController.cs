@@ -28,7 +28,7 @@ namespace RentalWeb.Web.Controllers
 
             var postDtos = await _postService.GetPostsByUserEmailAsync(email);
 
-            var viewModel = postDtos.Select(p => new PostViewModel
+            var viewModel = postDtos.Select(p => new ViewModels.Post.PostViewModel
             {
                 PostId = p.PostId,
                 Title = p.Title,
