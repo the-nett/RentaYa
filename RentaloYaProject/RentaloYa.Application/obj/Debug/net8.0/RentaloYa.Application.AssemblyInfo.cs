@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RentaloYa.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+493a2e1a19e169fd06b042013f3c82fd461e7436")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17af7ea218161014eecfcb11c5bcae75d9731a2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("RentaloYa.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RentaloYa.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

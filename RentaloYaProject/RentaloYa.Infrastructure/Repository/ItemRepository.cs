@@ -23,5 +23,16 @@ namespace RentaloYa.Infrastructure.Repository
                 .Where(i => i.Owner.Email == email /* && !i.IsDeleted */) // descomenta si manejas soft delete
                 .ToListAsync();
         }
+        public async Task<List<Item>> GetItemsByUserIdAsync(int userId)
+        {
+            return await _context.Items
+                                 .Where(i => i.OwnerId == userId)
+                                 .ToListAsync();
+        }
+
+        public async Task<Item?> GetItemByIdAsync(int itemId)
+        {
+            return await _context.Items.FirstOrDefaultAsync(i => i.Id == itemId);
+        }
     }
 }

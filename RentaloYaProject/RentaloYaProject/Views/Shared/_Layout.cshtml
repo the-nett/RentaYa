@@ -108,7 +108,7 @@
                 <div class="col-md-3">
                     <h4 class="text-white fw-medium mb-3">Contacto</h4>
                     <ul class="list-unstyled small">
-                        <li class="text-muted">soporte@RentalWeb.com</li>
+                        <li class="text-muted">soporte@@RentalWeb.com</li>
                         <li class="text-muted">+52 55 1234 5678</li>
                     </ul>
                 </div>
@@ -118,9 +118,15 @@
             </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Chat 3CX - Integración -->
+    <call-us-selector phonesystem-url="https://1259.3cx.cloud" party="LiveChat828306"></call-us-selector>
+    <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+
 </body>
 </html>

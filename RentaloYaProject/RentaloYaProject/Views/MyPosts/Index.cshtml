@@ -4,7 +4,28 @@
     ViewData["Title"] = "Mis Publicaciones";
 }
 
-<h2 class="mb-4">Mis Publicaciones</h2>
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+    <h2 class="mb-0">Mis Publicaciones</h2>
+    <a asp-controller="MyPosts" asp-action="Create" class="btn btn-success my-2">
+        <i class="bi bi-plus-lg me-1"></i> Crear Nuevo Post
+    </a>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
 
 @if (!Model.Any())
 {
@@ -17,7 +38,7 @@ else
         {
             <div class="col">
                 <div class="card h-100 shadow-sm">
-                    <img src="@post.ImageUrl" /images/default-image.png"" class="card-img-top" alt="@post.ItemName" style="object-fit: cover; height: 200px;">
+                    <img src="@(string.IsNullOrEmpty(post.ImageUrl) ? "/images/default-image.png" : post.ImageUrl)" class="card-img-top" alt="@post.ItemName" style="object-fit: cover; height: 200px;">
                     <div class="card-body">
                         <h5 class="card-title">@post.Title</h5>
                         <p class="card-text">@post.Description</p>
@@ -28,8 +49,18 @@ else
                         <p class="text-muted"><strong>Tarifa por unidad:</strong> @post.Price</p>
                         <p class="text-muted"><strong>Ubicación:</strong> @post.Location</p>
                     </div>
-                    <div class="card-footer text-muted small">
-                        Publicado el @post.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        @* Flexbox para alinear botones y fecha *@
+                        <small class="text-muted">Publicado el @post.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
+                        <div>
+                            <a asp-action="Edit" asp-controller="MyPosts" asp-route-id="@post.PostId" class="btn btn-sm btn-primary me-2">Editar</a>
+                            <form asp-action="DeletePost" asp-controller="MyPosts" asp-route-id="@post.PostId" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger"
+                                        onclick="return confirm('¿Estás seguro de que quieres eliminar esta publicación? Esta acción es irreversible.');">
+                                    Eliminar
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

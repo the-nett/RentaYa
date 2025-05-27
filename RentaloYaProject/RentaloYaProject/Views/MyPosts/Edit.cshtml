@@ -1,0 +1,50 @@
+﻿@model RentalWeb.Web.ViewModels.Post.EditPostWebViewModel
+
+@{
+    ViewData["Title"] = "Editar Post";
+}
+
+<h1>Editar Post</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostId" /> @* Campo oculto para el PostId *@
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemId" class="control-label"></label>
+                <select asp-for="ItemId" asp-items="@Model.AvailableItems" class="form-control">
+                    <option value="">-- Selecciona un Artículo --</option>
+                </select>
+                <span asp-validation-for="ItemId" class="text-danger"></span>
+                @if (!string.IsNullOrEmpty(Model.CurrentItemName))
+                {
+                    <small class="form-text text-muted">Artículo actual: @Model.CurrentItemName</small>
+                }
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

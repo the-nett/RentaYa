@@ -3,6 +3,110 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\views\\myposts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\myposts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\controllers\\mypostscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\controllers\\mypostscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\services\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\services\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\services\\interfacesservices\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\services\\interfacesservices\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\deletepostresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\deletepostresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.infrastructure\\repository\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\services\\interfacesservices\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\services\\interfacesservices\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.infrastructure\\repository\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\editpostresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\editpostresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\editpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\editpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\views\\myposts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\myposts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\itemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\itemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\interfaces\\iitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\interfaces\\iitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\postdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\postdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\viewmodels\\post\\createpostwebviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\viewmodels\\post\\createpostwebviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\viewmodels\\post\\editpostwebviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\viewmodels\\post\\editpostwebviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\viewmodels\\post\\postviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\viewmodels\\post\\postviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.infrastructure\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45B05230-7565-4CA9-93AD-2A00CA340273}|RentaloYa.Infrastructure\\RentaloYa.Infrastructure.csproj|solutionrelative:rentaloya.infrastructure\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\views\\garage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\garage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\views\\myposts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\myposts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\createpostresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\createpostresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\createpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\createpostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloya.application\\common\\dtos\\postwithitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6251609-9900-4580-912E-3A9821B4A785}|RentaloYa.Application\\RentaloYa.Application.csproj|solutionrelative:rentaloya.application\\common\\dtos\\postwithitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -15,20 +119,8 @@
       "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\auth\\handlesupabasecallback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\controllers\\mypostscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\controllers\\mypostscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\controllers\\garagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\controllers\\garagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\views\\garage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|solutionrelative:rentaloyaproject\\views\\garage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{255FD4EC-2E59-4BB7-AF50-1B57405328DA}|RentaloYaProject\\RentalWeb.Web.csproj|c:\\users\\user\\source\\repos\\rentaya\\rentaloyaproject\\rentaloyaproject\\viewmodels\\garage\\createitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,20 +154,358 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyPostsController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Controllers\\MyPostsController.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Controllers\\MyPostsController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Controllers\\MyPostsController.cs",
+              "RelativeToolTip": "RentaloYaProject\\Controllers\\MyPostsController.cs",
+              "ViewState": "AgIAAOoAAAAAAAAAAADwv+8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T02:11:55.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\ItemRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\ItemRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\ItemRepository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\ItemRepository.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:20:19.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EditPostDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\EditPostDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\EditPostDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\EditPostDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\EditPostDto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T11:51:18.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PostRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\PostRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\PostRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\PostRepository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\PostRepository.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAwEQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:58:05.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditPostResultDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\EditPostResultDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\EditPostResultDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\EditPostResultDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\EditPostResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T11:52:42.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\MyPosts\\Index.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\MyPosts\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\MyPosts\\Index.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\MyPosts\\Index.cshtml",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwDMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T07:35:34.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeletePostResultDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\DeletePostResultDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\DeletePostResultDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\DeletePostResultDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\DeletePostResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:37:45.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPostService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Services\\InterfacesServices\\IPostService.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Services\\InterfacesServices\\IPostService.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Services\\InterfacesServices\\IPostService.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Services\\InterfacesServices\\IPostService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:56:52.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PostService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Services\\PostService.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Services\\PostService.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Services\\PostService.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Services\\PostService.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAIwNwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:57:19.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\Interfaces\\IItemRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\Interfaces\\IItemRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\Interfaces\\IItemRepository.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\Interfaces\\IItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:18:49.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IPostRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Services\\InterfacesServices\\IPostRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Services\\InterfacesServices\\IPostRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Services\\InterfacesServices\\IPostRepository.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Services\\InterfacesServices\\IPostRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:57:53.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ItemDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\ItemDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\ItemDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\ItemDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\ItemDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:13:57.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PostDetailDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\PostDetailDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\PostDetailDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\PostDetailDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\PostDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:06:13.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\MyPosts\\Edit.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\MyPosts\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\MyPosts\\Edit.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\MyPosts\\Edit.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T12:13:08.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "EditPostWebViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Post\\EditPostWebViewModel.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\ViewModels\\Post\\EditPostWebViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Post\\EditPostWebViewModel.cs",
+              "RelativeToolTip": "RentaloYaProject\\ViewModels\\Post\\EditPostWebViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T11:56:02.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PostViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Post\\PostViewModel.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\ViewModels\\Post\\PostViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Post\\PostViewModel.cs",
+              "RelativeToolTip": "RentaloYaProject\\ViewModels\\Post\\PostViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:56:15.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CreatePostWebViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Post\\CreatePostWebViewModel.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\ViewModels\\Post\\CreatePostWebViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Post\\CreatePostWebViewModel.cs",
+              "RelativeToolTip": "RentaloYaProject\\ViewModels\\Post\\CreatePostWebViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:08:41.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\Repository.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAqwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:41:12.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "RelativeToolTip": "RentaloYa.Infrastructure\\Repository\\IRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:41:01.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\MyPosts\\Create.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\MyPosts\\Create.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\MyPosts\\Create.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\MyPosts\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T07:10:53.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Program.cs",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Program.cs",
+              "RelativeToolTip": "RentaloYaProject\\Program.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAjwB8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T00:53:17.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Garage\\Index.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\Garage\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Garage\\Index.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\Garage\\Index.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAUwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-26T23:47:04.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CreatePostDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\CreatePostDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\CreatePostDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\CreatePostDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\CreatePostDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:03:31.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CreatePostResultDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\CreatePostResultDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\CreatePostResultDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\CreatePostResultDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\CreatePostResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:04:29.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "PostWithItemDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\PostWithItemDto.cs",
+              "RelativeDocumentMoniker": "RentaloYa.Application\\Common\\DTOs\\PostWithItemDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYa.Application\\Common\\DTOs\\PostWithItemDto.cs",
+              "RelativeToolTip": "RentaloYa.Application\\Common\\DTOs\\PostWithItemDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAywBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T06:57:34.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "RentaloYaProject\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAYwIMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T06:29:23.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\appsettings.Development.json",
               "RelativeDocumentMoniker": "RentaloYaProject\\appsettings.Development.json",
               "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\appsettings.Development.json",
               "RelativeToolTip": "RentaloYaProject\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-05-27T03:51:27.613Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 28,
               "Title": "HandleSupabaseCallback.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Auth\\HandleSupabaseCallback.cshtml",
               "RelativeDocumentMoniker": "RentaloYaProject\\Views\\Auth\\HandleSupabaseCallback.cshtml",
@@ -83,38 +513,11 @@
               "RelativeToolTip": "RentaloYaProject\\Views\\Auth\\HandleSupabaseCallback.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T03:25:50.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T03:25:50.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyPostsController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Controllers\\MyPostsController.cs",
-              "RelativeDocumentMoniker": "RentaloYaProject\\Controllers\\MyPostsController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Controllers\\MyPostsController.cs",
-              "RelativeToolTip": "RentaloYaProject\\Controllers\\MyPostsController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAmwBMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T02:11:55.447Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Program.cs",
-              "RelativeDocumentMoniker": "RentaloYaProject\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Program.cs",
-              "RelativeToolTip": "RentaloYaProject\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T00:53:17.118Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 27,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "RentaloYaProject\\Controllers\\AuthController.cs",
@@ -122,12 +525,11 @@
               "RelativeToolTip": "RentaloYaProject\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAQwEEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T00:52:31.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T00:52:31.405Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 29,
               "Title": "GarageController.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Controllers\\GarageController.cs",
               "RelativeDocumentMoniker": "RentaloYaProject\\Controllers\\GarageController.cs",
@@ -135,25 +537,11 @@
               "RelativeToolTip": "RentaloYaProject\\Controllers\\GarageController.cs",
               "ViewState": "AgIAAEwBAAAAAAAAAAAqwGYBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T23:38:54.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-26T23:38:54.942Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Garage\\Index.cshtml",
-              "RelativeDocumentMoniker": "RentaloYaProject\\Views\\Garage\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Garage\\Index.cshtml",
-              "RelativeToolTip": "RentaloYaProject\\Views\\Garage\\Index.cshtml",
-              "ViewState": "AgIAABYAAAAAAAAAAAAwwCIAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-26T23:47:04.623Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 30,
               "Title": "CreateItemViewModel.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\ViewModels\\Garage\\CreateItemViewModel.cs",
               "RelativeDocumentMoniker": "RentaloYaProject\\ViewModels\\Garage\\CreateItemViewModel.cs",
@@ -161,12 +549,11 @@
               "RelativeToolTip": "RentaloYaProject\\ViewModels\\Garage\\CreateItemViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T00:22:33.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T00:22:33.143Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 31,
               "Title": "AddItem.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\RentaYa\\RentaloYaProject\\RentaloYaProject\\Views\\Garage\\AddItem.cshtml",
               "RelativeDocumentMoniker": "RentaloYaProject\\Views\\Garage\\AddItem.cshtml",
