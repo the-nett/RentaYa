@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RentaloYa.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d43a38d2d5528f5b860a4046b0d8126380e38910")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+493a2e1a19e169fd06b042013f3c82fd461e7436")]
 [assembly: System.Reflection.AssemblyProductAttribute("RentaloYa.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RentaloYa.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

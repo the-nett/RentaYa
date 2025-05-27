@@ -21,6 +21,7 @@ namespace RentaloYa.Application.Services
             {
                 Id = item.Id,
                 Name = item.Name,
+                QuantityAvailable = item.QuantityAvailable,
                 Description = item.Description,
                 Price = item.Price,
                 ImageUrl = item.ImageUrl,

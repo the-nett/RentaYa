@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using RentaloYa.Application.Common.Interfaces;
 using RentaloYa.Application.Services;
@@ -32,6 +31,8 @@ builder.Services.AddScoped<ISupabaseAuthProvider, SupabaseAuthClient>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IPostService, PostService>();
 
 
 // --- INICIO: CAMBIO CLAVE EN LA CONFIGURACIÓN DE SUPABASE.CLIENT ---
@@ -58,7 +59,7 @@ builder.Services.AddScoped<Supabase.Client>(sp =>
     {
         AutoRefreshToken = true,       // Muy importante para mantener la sesión viva
         AutoConnectRealtime = true,    // Si lo necesitas, manténlo
-        // Puedes añadir otras opciones aquí si las tenías antes.
+
     };
 
     Supabase.Client client;

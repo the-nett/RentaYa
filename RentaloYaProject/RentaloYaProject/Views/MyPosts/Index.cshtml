@@ -1,0 +1,38 @@
+﻿@model List<RentalWeb.Web.ViewModels.Post.PostViewModel>
+
+@{
+    ViewData["Title"] = "Mis Publicaciones";
+}
+
+<h2 class="mb-4">Mis Publicaciones</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No tienes publicaciones registradas.</div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var post in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="@post.ImageUrl" /images/default-image.png"" class="card-img-top" alt="@post.ItemName" style="object-fit: cover; height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@post.Title</h5>
+                        <p class="card-text">@post.Description</p>
+                        <p class="text-muted mb-1"><strong>Artículo:</strong> @post.ItemName</p>
+                        <p class="text-muted"><strong>Estado:</strong> @post.Status</p>
+                        <p class="text-muted"><strong>Stock:</strong> @post.QuantityAvailable</p>
+                        <p class="text-muted"><strong>Tipo de Renta:</strong> @post.RentalType</p>
+                        <p class="text-muted"><strong>Tarifa por unidad:</strong> @post.Price</p>
+                        <p class="text-muted"><strong>Ubicación:</strong> @post.Location</p>
+                    </div>
+                    <div class="card-footer text-muted small">
+                        Publicado el @post.CreatedAt.ToString("dd/MM/yyyy HH:mm")
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

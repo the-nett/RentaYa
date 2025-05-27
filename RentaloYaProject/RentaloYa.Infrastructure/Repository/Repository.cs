@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RentaloYa.Application.Common.Interfaces;
 using RentaloYa.Infrastructure.Data;
 using System.Linq.Expressions;
 
 namespace RentaloYa.Infrastructure.Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T>, IReadRepository<T> where T : class
     {
         private readonly ApplicationDbContext _context;
         private readonly DbSet<T> _dbSet;

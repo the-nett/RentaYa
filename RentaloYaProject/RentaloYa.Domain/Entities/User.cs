@@ -33,5 +33,7 @@ namespace RentaloYa.Domain.Entities
         public ICollection<UserRol> UserRoles { get; set; } = null!;
 
         public ICollection<Item> Items { get; set; } = new List<Item>();
+        public ICollection<Post> Posts { get; set; } = new List<Post>();
+
     }
 }

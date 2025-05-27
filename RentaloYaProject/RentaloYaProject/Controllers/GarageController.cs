@@ -8,7 +8,6 @@ using RentaloYa.Infrastructure.Repository;
 using RentaloYa.Web.ViewModels.Garage;
 using RentalWeb.Web.ViewModels.Garage;
 using Supabase.Interfaces;
-using System.Linq.Expressions;
 using System.Security.Claims;
 
 namespace RentalWeb.Web.Controllers
@@ -24,116 +23,226 @@ namespace RentalWeb.Web.Controllers
         private readonly IConfiguration _configuration;
         private readonly Supabase.Client _supabaseClient;
 
-        public GarageController(IItemService itemService, IRepository<Category> categoryRepo, IRepository<RentalType> rentalTypeRepo, IUserRepository userRepository, IRepository<Item> itemRepository, IConfiguration configuration, Supabase.Client supabaseClient)
+        public GarageController(
+            IItemService itemService,
+            IRepository<Category> categoryRepo,
+            IRepository<RentalType> rentalTypeRepo,
+            IUserRepository userRepository,
+            IRepository<Item> itemRepo,
+            IConfiguration configuration,
+            Supabase.Client supabaseClient)
         {
             _itemService = itemService;
             _categoryRepo = categoryRepo;
             _rentalTypeRepo = rentalTypeRepo;
             _userRepository = userRepository;
-            _itemRepo = itemRepository;
+            _itemRepo = itemRepo;
             _configuration = configuration;
             _supabaseClient = supabaseClient;
         }
-        [HttpGet]
 
+        // -------- LISTADO PRINCIPAL ----------
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var correo = User.FindFirstValue(ClaimTypes.Email);
+
+            Console.WriteLine($"[DEBUG] User e-mail para listado: {correo}");
+
             var dtos = await _itemService.GetItemsByUserEmailAsync(correo);
 
             var viewModel = dtos.Select(dto => new GarageItemViewModel
             {
                 Id = dto.Id,
                 Nombre = dto.Name,
-                Cantidad = 1, // o lo que corresponda
+                Cantidad = dto.QuantityAvailable,
                 TipoRenta = dto.RentalTypeName,
-                Disponible = dto.Status == "Disponible",
+                Disponible = dto.Status,
                 ImageUrl = dto.ImageUrl
-
             }).ToList();
 
             return View(viewModel);
         }
+
+        // -------- FORMULARIO NUEVO ITEM ----------
         [HttpGet]
         public async Task<IActionResult> AddItem()
         {
-            var categories = await _categoryRepo.GetAllAsync();
-            IEnumerable<SelectListItem> list = categories.Select(g => new SelectListItem
-            {
-                Text = g.Name,
-                Value = g.Id.ToString()
-            });
-            ViewData["CategoryList"] = list;
-            var rentalTypes = await _rentalTypeRepo.GetAllAsync();
-            IEnumerable<SelectListItem> list2 = rentalTypes.Select(g => new SelectListItem
-            {
-                Text = g.TypeName,
-                Value = g.Id.ToString()
-            });
-            ViewData["RentalTypeList"] = list2;
-            var viewModel = new CreateItemViewModel();
-            return View(viewModel);
+            await PopulateDropdowns();
+            return View(new CreateItemViewModel());
         }
 
-        [HttpPost]
-        [ActionName("AddItem")]
+        // -------- CREACIÓN ITEM ----------
+        [HttpPost, ActionName("AddItem")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateItem(CreateItemViewModel model)
         {
             try
             {
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
-                    // --- Lógica para subir imagen a Supabase Storage ---
-                    string? imageUrl = null;
-                    if (model.ImageFile != null)
-                    {
-                        imageUrl = await UploadImageToSupabase(model.ImageFile);
-                        if (string.IsNullOrEmpty(imageUrl))
-                        {
-                            ModelState.AddModelError("ImageFile", "Error al subir la imagen a Supabase.");
-                            await PopulateDropdowns();
-                            return View("AddItem", model);
-                        }
-                    }
-                    model.ImageUrl = imageUrl; // Asignar la URL obtenida al ViewModel
-
-                    // --- Fin lógica subida imagen ---
-
-                    var correo = User.FindFirstValue(ClaimTypes.Email);
-                    var userCurrent = await _userRepository.GetUserByEmailAsync(correo);
-
-                    var newItem = new Item
-                    {
-                        OwnerId = userCurrent.Id,
-                        Name = model.Name,
-                        Description = model.Description,
-                        RentalTypeId = int.Parse(model.RentType),
-                        Price = model.Price,
-                        ImageUrl = model.ImageUrl, // Se guarda la URL de Supabase Storage
-                        CategoryId = int.Parse(model.Category),
-                        Location = model.Location,
-                        ItemStatusId = 1,
-                        QuantityAvailable = model.Quantity,
-                        CreatedAt = DateTime.UtcNow
-                    };
-                    await _itemRepo.AddAsync(newItem);
-
-                    TempData["SuccessMessage"] = "Artículo añadido exitosamente.";
-                    return RedirectToAction("Index", "Garage");
+                    Console.WriteLine("[WARNING] ModelState inválido.");
+                    await PopulateDropdowns();
+                    return View("AddItem", model);
                 }
+
+                // ---------- Subir imagen ----------
+                string? imageUrl = null;
+                if (model.ImageFile != null)
+                {
+                    Console.WriteLine($"[DEBUG] Archivo recibido: {model.ImageFile.FileName} | Size: {model.ImageFile.Length}");
+                    imageUrl = await UploadImageToSupabase(model.ImageFile);
+
+                    if (string.IsNullOrEmpty(imageUrl))
+                    {
+                        Console.WriteLine("[ERROR] UploadImageToSupabase devolvió null.");
+                        ModelState.AddModelError("ImageFile", "Error al subir la imagen a Supabase.");
+                        await PopulateDropdowns();
+                        return View("AddItem", model);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("[WARNING] model.ImageFile es null.");
+                }
+
+                model.ImageUrl = imageUrl;
+
+                // ---------- Crear objeto Item ----------
+                var correo = User.FindFirstValue(ClaimTypes.Email);
+                var userCurrent = await _userRepository.GetUserByEmailAsync(correo);
+
+                var newItem = new Item
+                {
+                    OwnerId = userCurrent.Id,
+                    Name = model.Name,
+                    Description = model.Description,
+                    RentalTypeId = int.Parse(model.RentType),
+                    Price = model.Price,
+                    ImageUrl = model.ImageUrl,
+                    CategoryId = int.Parse(model.Category),
+                    Location = model.Location,
+                    ItemStatusId = 1,
+                    QuantityAvailable = model.Quantity,
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                await _itemRepo.AddAsync(newItem);
+                Console.WriteLine($"[DEBUG] Item {newItem.Name} guardado con ID {newItem.Id}");
+
+                TempData["SuccessMessage"] = "Artículo añadido exitosamente.";
+                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                // _logger.LogError(ex, "Error al añadir el artículo.");
-                ModelState.AddModelError("", "Ocurrió un error al intentar añadir el artículo. Por favor, inténtelo de nuevo.");
+                Console.WriteLine($"[ERROR] Excepción en CreateItem: {ex}");
+                ModelState.AddModelError("", "Ocurrió un error al intentar añadir el artículo.");
+                await PopulateDropdowns();
+                return View("AddItem", model);
             }
-
-            await PopulateDropdowns();
-            return View("AddItem", model);
         }
 
+        // -------- UPLOAD A SUPABASE ----------
+        private async Task<string?> UploadImageToSupabase(IFormFile imageFile)
+        {
+            var bucketName = _configuration["Supabase:BucketName"];
+            if (string.IsNullOrEmpty(bucketName))
+            {
+                Console.WriteLine("[ERROR] BucketName no configurado.");
+                return null;
+            }
 
+            var fileName = $"{Guid.NewGuid()}-{Path.GetFileName(imageFile.FileName)}";
+            var filePath = $"items/{fileName}";
+
+            Console.WriteLine($"[DEBUG] Subiendo a bucket: {bucketName} | Path: {filePath}");
+
+            try
+            {
+                using var ms = new MemoryStream();
+                await imageFile.CopyToAsync(ms);
+                var bytes = ms.ToArray();
+
+                Console.WriteLine($"[DEBUG] Bytes a subir: {bytes.Length}");
+                Console.WriteLine($"[DEBUG] Token visible para Supabase: {_supabaseClient.Auth.CurrentSession?.AccessToken?.Substring(0, 20) ?? "NULL"}");
+                Console.WriteLine($"[DEBUG] User ID Supabase: {_supabaseClient.Auth.CurrentUser?.Id ?? "NULL"}");
+                var uploadResult = await _supabaseClient.Storage
+                    .From(bucketName)
+
+                    .Upload(bytes, filePath, new Supabase.Storage.FileOptions
+                    {
+
+                        Upsert = true,
+                        ContentType = imageFile.ContentType
+                    });
+
+                Console.WriteLine($"[DEBUG] Resultado Supabase.Upload: {uploadResult}");
+
+                var publicUrl = _supabaseClient.Storage.From(bucketName).GetPublicUrl(filePath);
+                Console.WriteLine($"[DEBUG] URL pública generada: {publicUrl}");
+                return publicUrl;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] Excepción al subir a Supabase: {ex.Message}");
+                return null;
+            }
+        }
+
+        // Este método toma la URL COMPLETA de la imagen para eliminarla.
+        private async Task<bool> DeleteImageFromSupabase(string imageUrl)
+        {
+            if (string.IsNullOrEmpty(imageUrl))
+            {
+                return false; // No hay URL para eliminar
+            }
+
+            var bucketName = _configuration["Supabase:BucketName"];
+            try
+            {
+                var uri = new Uri(imageUrl);
+                // La URL de Supabase es algo como: https://[project].supabase.co/storage/v1/object/public/[bucket]/[path/to/file.ext]
+                // Necesitamos extraer "[path/to/file.ext]"
+                var publicPathSegment = $"/storage/v1/object/public/{bucketName}/";
+                var relativePath = uri.AbsolutePath.Substring(uri.AbsolutePath.IndexOf(publicPathSegment) + publicPathSegment.Length);
+
+                if (string.IsNullOrEmpty(relativePath))
+                {
+                    Console.WriteLine($"Error: No se pudo extraer la ruta del archivo de la URL: {imageUrl}");
+                    return false;
+                }
+
+                // Supabase Storage Remove requiere un array de nombres de archivos/rutas
+                var response = await _supabaseClient.Storage
+                    .From(bucketName)
+                    .Remove(new List<string> { relativePath });
+
+                return response != null && response.Any(); // Si la respuesta no es nula y contiene elementos, la eliminación fue exitosa
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Exception during image deletion: {ex.Message}");
+                return false;
+            }
+        }
+        // ---------- Helpers ----------
+        private async Task PopulateDropdowns()
+        {
+            var categories = await _categoryRepo.GetAllAsync();
+            var rentalTypes = await _rentalTypeRepo.GetAllAsync();
+
+            ViewData["CategoryList"] = categories.Select(c => new SelectListItem
+            {
+                Text = c.Name,
+                Value = c.Id.ToString()
+            }).ToList();
+
+            ViewData["RentalTypeList"] = rentalTypes.Select(rt => new SelectListItem
+            {
+                Text = rt.TypeName,
+                Value = rt.Id.ToString()
+            }).ToList();
+        }
         // GET: /Garage/EditItem/{id}
         public async Task<IActionResult> EditItem(int id)
         {
@@ -227,28 +336,6 @@ namespace RentalWeb.Web.Controllers
             await PopulateDropdowns();
             return View(model);
         }
-
-        /// <summary>
-        /// Método auxiliar para poblar los dropdowns de categorías y tipos de renta.
-        /// Este método es reutilizado por AddItem y EditItem.
-        /// </summary>
-        private async Task PopulateDropdowns()
-        {
-            var categories = await _categoryRepo.GetAllAsync();
-            ViewData["CategoryList"] = categories.Select(g => new SelectListItem
-            {
-                Text = g.Name,
-                Value = g.Id.ToString()
-            }).ToList(); // .ToList() es una buena práctica aquí
-
-            var rentalTypes = await _rentalTypeRepo.GetAllAsync();
-            ViewData["RentalTypeList"] = rentalTypes.Select(g => new SelectListItem
-            {
-                Text = g.TypeName,
-                Value = g.Id.ToString()
-            }).ToList(); // .ToList() es una buena práctica aquí
-        }
-
         [HttpPost] // Es más seguro usar HttpPost para operaciones de eliminación
         [ValidateAntiForgeryToken] // Siempre usar para POSTs que modifican datos
         public async Task<IActionResult> DeleteItem(int id)
@@ -270,86 +357,6 @@ namespace RentalWeb.Web.Controllers
             }
         }
 
-        //SUpabase Storage---------------------------------------------------------
-        private async Task<string?> UploadImageToSupabase(IFormFile imageFile)
-        {
-            var bucketName = _configuration["Supabase:BucketName"]; // Obtener el nombre del bucket de la configuración
-            if (string.IsNullOrEmpty(bucketName))
-            {
-                // Loguear error: el nombre del bucket no está configurado
-                return null;
-            }
 
-            // Generar un nombre de archivo único para evitar colisiones
-            var fileName = $"{Guid.NewGuid()}-{Path.GetFileName(imageFile.FileName)}";
-            var filePath = $"items/{fileName}"; // Puedes organizar en carpetas dentro del bucket
-
-            try
-            {
-                // Convertir el archivo a un array de bytes
-                using var memoryStream = new MemoryStream();
-                await imageFile.CopyToAsync(memoryStream);
-                var fileBytes = memoryStream.ToArray();
-
-                // Subir el archivo a Supabase Storage
-                var storageResponse = await _supabaseClient.Storage
-                    .From(bucketName)
-                    .Upload(fileBytes, filePath, new Supabase.Storage.FileOptions
-                    {
-                        Upsert = true, // Permite sobreescribir si ya existe un archivo con el mismo nombre
-                        ContentType = imageFile.ContentType
-                    });
-
-                // Obtener la URL pública completa
-                var publicUrl = _supabaseClient.Storage
-                                                .From(bucketName)
-                                                .GetPublicUrl(filePath);
-
-                return publicUrl;
-            }
-            catch (Exception ex)
-            {
-                // Loguear la excepción de Supabase Storage
-                // _logger.LogError(ex, "Error al subir imagen a Supabase Storage.");
-                return null;
-            }
-        }
-
-        // Este método toma la URL COMPLETA de la imagen para eliminarla.
-        private async Task<bool> DeleteImageFromSupabase(string imageUrl)
-        {
-            if (string.IsNullOrEmpty(imageUrl))
-            {
-                return false; // No hay URL para eliminar
-            }
-
-            var bucketName = _configuration["Supabase:BucketName"];
-            try
-            {
-                var uri = new Uri(imageUrl);
-                // La URL de Supabase es algo como: https://[project].supabase.co/storage/v1/object/public/[bucket]/[path/to/file.ext]
-                // Necesitamos extraer "[path/to/file.ext]"
-                var publicPathSegment = $"/storage/v1/object/public/{bucketName}/";
-                var relativePath = uri.AbsolutePath.Substring(uri.AbsolutePath.IndexOf(publicPathSegment) + publicPathSegment.Length);
-
-                if (string.IsNullOrEmpty(relativePath))
-                {
-                    Console.WriteLine($"Error: No se pudo extraer la ruta del archivo de la URL: {imageUrl}");
-                    return false;
-                }
-
-                // Supabase Storage Remove requiere un array de nombres de archivos/rutas
-                var response = await _supabaseClient.Storage
-                    .From(bucketName)
-                    .Remove(new List<string> { relativePath });
-
-                return response != null && response.Any(); // Si la respuesta no es nula y contiene elementos, la eliminación fue exitosa
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"General Exception during image deletion: {ex.Message}");
-                return false;
-            }
-        }
     }
 }
