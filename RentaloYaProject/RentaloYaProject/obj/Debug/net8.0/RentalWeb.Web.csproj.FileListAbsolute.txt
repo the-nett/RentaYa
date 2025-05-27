@@ -48,6 +48,8 @@ C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\n
 C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\MimeMapping.dll
 C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Mono.TextTemplating.dll
 C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Npgsql.dll
+C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Supabase.dll
 C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Supabase.Core.dll
 C:\Users\User\source\repos\RentaYa\RentaloYaProject\RentaloYaProject\bin\Debug\net8.0\Supabase.Functions.dll

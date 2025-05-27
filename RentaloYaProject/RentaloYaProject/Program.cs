@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using RentaloYa.Application.Common.Interfaces; // Para IItemRepository, ISearchService, IImageTaggingService
 using RentaloYa.Application.Services; // Para SearchService, ItemService, UserService, AuthService
 using RentaloYa.Application.Services.InterfacesServices; // Para IAuthService, IUserService, IItemService, IPostService
@@ -22,7 +23,7 @@ builder.Services.AddHttpClient(); // Útil para servicios que hagan llamadas HTTP
 // DbContext
 // Asegúrate de que "LocalConnectionDev" esté definido en appsettings.json
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
-    option.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnectionDev")));
+    option.UseNpgsql(builder.Configuration.GetConnectionString("LocalConnectionDev")));
 
 // Dependency Injection - Repositorios
 builder.Services.AddScoped<IUserRepository, UserRepository>();
